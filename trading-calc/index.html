@@ -1,0 +1,641 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Trading Calculator</title>
+  <meta name="description" content="Trading Calculator">
+  <meta name="author" content="Hizal Celik">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<style>
+body { padding: 0; margin: 0; background: #272822; font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; color: #a6d800; transition: background-color .5s;}
+body.flash { transition: none; background-color: #434f1b; }
+.header { padding: 8px 20px; padding-top: 10px; background: #171814; color: #868686; border-bottom: 1px solid #505050; }
+.header small { opacity: .7; }
+.clean { float: right; border: 1px solid #868686; padding: 5px 5px 0 5px; font-size: 20px; overflow: hidden; height: 17px; margin-top: -5px; cursor: pointer; }
+.clean:hover { color: white; border-color: white; }
+a { text-decoration: none; color: inherit; }
+a:hover { color: white; text-decoration: underline; }
+#terminal { padding: 20px; }
+#cursor:after { display: inline-block; content: "|"; -webkit-animation: 1s blink step-end infinite; -moz-animation: 1s blink step-end infinite; -ms-animation: 1s blink step-end infinite; -o-animation: 1s blink step-end infinite; animation: 1s blink step-end infinite; }
+@keyframes "blink" { from, to { color: transparent; } 50% { color: inherit; } }
+@-moz-keyframes blink { from, to { color: transparent; } 50% { color: inherit; } }
+@-webkit-keyframes "blink" { from, to { color: transparent; } 50% { color: inherit; } }
+@-ms-keyframes "blink" { from, to { color: transparent; } 50% { color: inherit; } }
+@-o-keyframes "blink" { from, to { color: transparent; } 50% { color: inherit; } }
+p { padding: 0; margin: 0; cursor: text; }
+p.error { color: #868686; opacity: .7; }
+.input:before { content: " "; opacity: .5; }
+.input[type="money"]:before { content: " $"; opacity: .5; }
+.input[type="shares"]:after { content: " shares"; opacity: .5; }
+.input[type="menu"]:after { content: ")"; opacity: .5; }
+.input[type="perc"]:after { content: "%"; opacity: .5; }
+#input { color: white; }
+hr { margin: 20px 0; border-color: #171814; border-style: solid; }
+em { text-decoration: none; font-style: normal; font-size: inherit; opacity: .5; }
+em.ast { vertical-align: sub; }
+
+</style>
+
+<body>
+
+<div class="header"> Trading Calculator <small>by <a href="www.hizalcelik.com">DerTarchin</a></small><div class="clean" id="clear">*</div></div>
+
+<div id="terminal"></div>
+
+<script type="text/javascript">
+
+var cursor = "<span id='cursor'></span>";
+var input = "<span class='input' id='input'>" + cursor + "</span>";
+var to = "<p>"; //tag open
+var to_il = "<p class='input-line'>";
+var tc = "</p>"; //tag close
+var $term = $("#terminal");
+var active = 0;
+
+variables = {};
+
+function money(val) {
+  if(!("pos" in variables)) {
+    if(val != null) {
+      variables["pos"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Position:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("entry" in variables)) {
+    if(val != null) {
+      variables["entry"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Entry:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("exit" in variables)) {
+    if(val != null) {
+      variables["exit"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Exit:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var html;
+  var bank = variables["pos"];
+  var stock_buy = variables["entry"];
+  var stock_sell = variables["exit"];
+
+  if(bank < stock_buy) {
+    html = "<p class='error'>Position size is less than entry price." + tc;
+    $term.append(html);
+    reset();
+    return;
+  }
+  else {
+    html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+    var shares = Math.floor(bank/stock_buy);
+    var position = shares * stock_buy;
+    var left_in_bank = bank-position;
+    var account_new = shares * stock_sell;
+    var bank_new = left_in_bank + account_new;
+    var profit = (shares*stock_sell)-(shares*stock_buy);
+    var gain = (stock_sell-stock_buy)/stock_buy * 100;
+
+    if(gain < 0)
+      html += to+"$"+pretty(bank_new.toFixed(2))+"<em>:</em> -$"+pretty((profit*-1).toFixed(2))+" <em>(</em>-"+pretty((gain*-1).toFixed(2))+"%<em>)</em>"+tc;
+    else
+      html += to+"$"+pretty(bank_new.toFixed(2))+"<em>:</em> +$"+pretty(profit.toFixed(2))+" <em>(</em>+"+pretty(gain.toFixed(2))+"%<em>)</em>"+tc;
+    html += to + "<em>with</em> " + pretty(shares) + " shares" + tc;
+    html += to + "<em class='ast'>*********************</em>" + tc;
+  }
+  $term.append(html);
+  reset();
+}
+
+function shares(val) {
+  if(!("shares" in variables)) {
+    if(val != null) {
+      variables["shares"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Shares:</em> " + tc);
+      addInput("shares", "digit");
+      return;
+    }
+  }
+  if(!("entry" in variables)) {
+    if(val != null) {
+      variables["entry"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Entry:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("exit" in variables)) {
+    if(val != null) {
+      variables["exit"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Exit:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var shares = variables["shares"];
+  var stock_buy = variables["entry"];
+  var stock_sell = variables["exit"];
+
+  var account = shares * stock_buy;
+  var account_new = shares * stock_sell;
+  var profit = account_new - account;
+  var gain = ((stock_sell-stock_buy)/stock_buy)*100;
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  if(gain < 0)
+    html += to+"<em>Loss:</em> -$"+pretty((profit*-1).toFixed(2))+" <em>(</em>-"+pretty((gain*-1).toFixed(2))+"%<em>)</em>"+tc;
+  else
+    html += to+"<em>Gain:</em> +$"+pretty(profit.toFixed(2))+" <em>(</em>+"+pretty(gain.toFixed(2))+"%<em>)</em>"+tc;
+  html += to + "<em>with</em> " + pretty(shares) + " shares" + tc;
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+function findperc(val) {
+  if(!("entry" in variables)) {
+    if(val != null) {
+      variables["entry"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Entry:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("perc" in variables)) {
+    if(val != null) {
+      variables["perc"] = parseFloat(val.replace(/,/g,''))/100;
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Percent:</em> " + tc);
+      addInput("perc", "digit");
+      return;
+    }
+  }
+
+  var price = variables["entry"];
+  var perc = variables["perc"];
+
+  var gain = perc * price + price;
+  var loss = -perc * price + price;
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  if(loss < 1 || gain < 1)
+    html += to+"$"+pretty(loss.toFixed(4))+" <em><</em> $"+pretty(price.toFixed(4))+" <em>></em> $"+pretty(gain.toFixed(4))+tc;
+  else
+    html += to + "$" + pretty(loss.toFixed(2)) + " <em><</em> $" + pretty(price.toFixed(2)) + " <em>></em> $" + pretty(gain.toFixed(2)) + tc;
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+function findshares(val) {
+  if(!("pos" in variables)) {
+    if(val != null) {
+      variables["pos"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Max:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("entry" in variables)) {
+    if(val != null) {
+      variables["entry"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Price:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var bank = variables["pos"];
+  var price = variables["entry"];
+  var shares = Math.floor(bank/price);
+
+  var html;
+  if(bank < price) {
+    html = "<p class='error'>Max position size is less than entry price." + tc;
+    $term.append(html);
+    reset();
+    return;
+  }
+  else {
+    html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+    html += to + "<em>Trade with</em> " + pretty(shares) + " shares" + tc;
+    html += to + "<em class='ast'>*********************</em>" + tc;
+  }
+
+  $term.append(html);
+  reset();
+}
+
+function findchange(val) {
+  if(!("entry" in variables)) {
+    if(val != null) {
+      variables["entry"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Price:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("exit" in variables)) {
+    if(val != null) {
+      variables["exit"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Exit:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var stock_buy = variables["entry"];
+  var stock_sell = variables["exit"];
+  var change = (stock_sell-stock_buy)/stock_buy * 100;
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  html += to + pretty(change.toFixed(2)) + "% change" + tc;
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+function findgrowth(val) {
+  if(!("pos" in variables)) {
+    if(val != null) {
+      variables["pos"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Investment:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("changes" in variables)) {
+    if(val != null) {
+      variables["changes"] = val;
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>List trades (in % changes separated by spaces):</em> " + tc);
+      addInput("perc", "digit");
+      return;
+    }
+  }
+  
+  var bank = variables["pos"];
+  var bank_orig = variables["pos"];
+  changes = variables["changes"].split(" ");
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  html += to + "<em>Incremental:</em> ";
+  for(var i=0; i<changes.length; i++) {
+    bank += bank*parseFloat(changes[i].replace(/,/g,''))/100;
+    html += "$" + pretty(bank.toFixed(2)) + " <em>></em> "
+  }
+  html += tc + "<br>";
+  var change = (bank-bank_orig)/bank_orig * 100;
+  html += to + "<em>Final value: </em> $"+pretty(bank.toFixed(2))+" <em>(</em>"+pretty(change.toFixed(2))+"%<em>)</em>"+tc;
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+function findscale(val) {
+  if(!("capital" in variables)) {
+    if(val != null) {
+      variables["capital"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Capital:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("scale" in variables)) {
+    if(val != null) {
+      variables["scale"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Scale by:</em> " + tc);
+      addInput("", "digit");
+      return;
+    }
+  }
+
+  var x = variables["capital"]/(variables["scale"]*(1 + variables["scale"])/2);
+
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  for(var i=1; i<variables["scale"]+1; i++) {
+    html += "Entry #" + i + ": $" + pretty((x*i).toFixed(2)) + "<br>"
+  }
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+
+function equity(val) {
+  if(!("shares" in variables)) {
+    if(val != null) {
+      variables["shares"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Shares:</em> " + tc);
+      addInput("shares", "digit");
+      return;
+    }
+  }
+  if(!("strike" in variables)) {
+    if(val != null) {
+      variables["strike"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Strike:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+  if(!("perc" in variables)) {
+    if(val != null) {
+      variables["perc"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Percent:</em> " + tc);
+      addInput("perc", "digit");
+      return;
+    }
+  }
+  if(!("valuation" in variables)) {
+    if(val != null) {
+      variables["valuation"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Valuation:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var { shares, strike, perc, valuation } = variables;
+
+  var total_shares = parseInt(((100 * shares) / perc));
+  var stock_buy = strike;
+  var stock_sell = valuation / total_shares;
+
+  var account = shares * stock_buy;
+  var account_new = shares * stock_sell;
+  var profit = account_new - account;
+  var gain = ((stock_sell-stock_buy)/stock_buy)*100;
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  if(gain < 0)
+    html += to+"<em>Loss:</em> -$"+pretty((profit*-1).toFixed(2))+" <em>(</em>-"+pretty((gain*-1).toFixed(2))+"%<em>)</em>"+tc;
+  else
+    html += to+"<em>Gain:</em> +$"+pretty(profit.toFixed(2))+" <em>(</em>+"+pretty(gain.toFixed(2))+"%<em>)</em>"+tc;
+  html += to + "<em>with</em> $" + pretty(account) + " <em> initial cost</em>" + tc;
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+function roth(val) {
+  if(!("capital" in variables)) {
+    if(val != null) {
+      variables["capital"] = parseFloat(val.replace(/,/g,''));
+      removeInput();
+      val = null;
+    }
+    else {
+      $term.append(to_il + "<em>Capital:</em> " + tc);
+      addInput("money", "digit");
+      return;
+    }
+  }
+
+  var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
+  html += "40% > <em>$</em>MDY : $" + pretty((variables["capital"] * 0.4).toFixed(2)) + "<br>"
+  html += "30% > <em>$</em>SVXY: $" + pretty((variables["capital"] * 0.3).toFixed(2)) + "<br>"
+  html += "30% > <em>$</em>ZIV : $" + pretty((variables["capital"] * 0.3).toFixed(2)) + "<br>"
+  html += to + "<em class='ast'>*********************</em>" + tc;
+
+  $term.append(html);
+  reset();
+}
+
+
+
+
+/* ================================================================== */
+
+function pretty(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function addInput(type, limit) {
+  $("#terminal p.input-line:last-of-type").append(input);
+  if(type != null) { $("body #input").attr('type', type); }
+  if(limit != null) { $("body #input").attr('limit', limit); }
+}
+
+function removeInput() {
+  $("body #input").attr('id', '');
+  $("body #cursor").remove();
+}
+
+function flash() {
+  $('body').addClass('flash');
+  setTimeout(function(){ $('body').removeClass('flash')}, 5);
+}
+
+function reset() {
+  active = 0;
+  variables = {}
+  $($term.append("<hr>"));
+  menu();
+}
+
+function clear() {
+  reset();
+  $term.empty();
+  menu();
+}
+
+function menu() {
+  $term.append(
+    to+"<em>1)</em> Calculate using money"+tc+
+    to+"<em>2)</em> Calculate using shares"+tc+
+    to+"<em>3)</em> Calculate % loss/gain"+tc+
+    to+"<em>4)</em> Calculate # shares"+tc+
+    to+"<em>5)</em> Calculate % change"+tc+
+    to+"<em>6)</em> Calculate growth"+tc+
+    to+"<em>7)</em> Calculate scale-in amount"+tc+
+    to+"<em>8)</em> Calculate equity return"+tc+
+    to+"<em>9)</em> Calculate diversification"+tc
+  );
+  $term.append(to_il + ">" + tc);
+  addInput("menu", "menu");
+}
+  
+function isChar(keycode) {
+  var valid = 
+        (keycode > 47 && keycode < 58)   || // number keys
+        keycode == 32                    || // spacebar
+        (keycode > 64 && keycode < 91)   || // letter keys
+        (keycode > 95 && keycode < 112)  || // numpad keys
+        (keycode > 185 && keycode < 193) || // ;=,-./` (in order)
+        (keycode > 218 && keycode < 223);   // [\]' (in order)
+  return valid;
+}
+function isDig(keycode) {
+  var valid = 
+        (keycode > 47 && keycode < 58)   || // number keys
+        keycode == 32                    || // spacebar
+        (keycode > 95 && keycode < 112)  || // numpad keys
+        keycode == 188 || keycode == 190 || // period / comma keys
+        keycode == 189                      // - key
+  return valid;
+}
+
+$('body').on('keydown', function(key) {
+  $input = $("body #input");
+  var limit = $input.attr('limit');
+  if(limit === "menu") {
+    if($input.text().length === 0 && isDig(key.keyCode)) $("body #cursor").before(key.key);
+  }
+  else if(limit === "digit") {
+    if(isDig(key.keyCode)) $("body #cursor").before(key.key);
+  }
+  else if(isChar(key.keyCode)) {
+    $("body #cursor").before(key.key);
+  }
+  if(key.key === "Backspace") { 
+    var text = $input.text();
+    if(text.length === 0) flash();
+    else $input.html(text.substring(0,text.length-1) + cursor);
+  }
+  if(key.key === "Enter") {
+    var val = $("body #input").text();
+    if(val.length == 0) return;
+    else removeInput();
+
+    if(active == 0) {
+      active = parseInt(val);
+      $term.append("<br>");
+      val = null;
+    }
+    if(active == 1) {
+      money(val);
+    }
+    if(active == 2) {
+      shares(val);
+    }
+    if(active == 3) {
+      findperc(val);
+    }
+    if(active == 4) {
+      findshares(val);
+    }
+    if(active == 5) {
+      findchange(val);
+    }
+    if(active == 6) {
+      findgrowth(val);
+    }
+    if(active == 7) {
+      findscale(val);
+    }
+    if(active == 8) {
+      equity(val);
+    }
+    if(active == 9) {
+      roth(val);
+    }
+  }
+})
+
+$('#clear').on('click', clear);
+
+menu();
+
+</script>
+</body>
+</html>

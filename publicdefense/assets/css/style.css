@@ -1,0 +1,283 @@
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  height: 100%;
+  background-color: #222;
+  color: #bcbcbc;
+}
+
+a {
+	text-decoration: none!important;
+	border: 0!important;
+  color: inherit;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.heavy {
+  font-weight: 700;
+}
+
+.grid {
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-content: stretch;
+}
+
+.grid > div {
+  height: 100%;
+  width: 100%;
+}
+
+.bar {
+  display: flex;
+  width: 100%;
+}
+
+.bar > div {
+  flex: 1;
+}
+
+.linkbox {
+  cursor: pointer;
+  background-size: cover;
+}
+
+.linkboxtext {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34,34,34,.6);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transition: all .15s;
+}
+
+.linkboxtext:hover {
+  background-color: rgba(34,34,34,.95);
+  color: white;
+}
+
+.title {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34,34,34,.6);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  text-transform: uppercase;
+  transition: all .15s;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+}
+
+.info {
+  text-align: right;
+  padding-right: 70px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  width: 100%;
+  z-index: 5;
+}
+
+#usalabel {
+  position: absolute;
+  float: left;
+  bottom: 0;
+  height: 40vh;
+  margin: 10px;
+  z-index: -10;
+  opacity: 0.5;
+}
+
+.floating-container {
+  position: absolute;
+  /*z-index: -5;*/
+  /*height: 100vh;*/
+  /*width: 100%;*/
+}
+
+.floating-title {
+  margin: 50px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.floating-info {
+  margin-left: 50px;
+}
+
+.back {
+  position: fixed;
+  top: 20px;
+  left: 50px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.back:hover {
+  opacity: 1;
+}
+
+.citation {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.right-panel {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*z-index: -5;*/
+  padding-right: 50px;
+  flex-direction: column;
+}
+
+.left-panel {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*z-index: -5;*/
+  padding-left: 50px;
+  flex-direction: column;
+}
+
+.fullsize {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  font-size: 15px;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #576b69;
+  border-radius: 10px;
+  color: #576b69;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  transition: all .15s;
+}
+
+button:hover {
+  background: rgba(87,107,105,.5);
+  color: white;
+}
+
+button:active {
+  background: #576b69;
+}
+
+* {
+  outline: none;
+}
+
+
+/* ==================================================
+   smoothState.js Transitions
+================================================== */
+
+.m-scene .scene_element {
+	-webkit-animation-duration: 0.3s;
+	animation-duration: 0.3s;
+	-webkit-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both; 
+}
+
+.m-scene .scene_element--fadein {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn; 
+}
+
+.m-scene .scene_element--fadeinup {
+	-webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp; 
+}
+
+.m-scene .scene_element--fadeindown {
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown; 
+}
+
+.m-scene .scene_element--fadeinright {
+	-webkit-animation-name: fadeInRight;
+	animation-name: fadeInRight; 
+}
+
+.m-scene .scene_element--fadeinleft {
+	-webkit-animation-name: fadeInLeft;
+	animation-name: fadeInLeft; 
+}
+
+.m-scene .scene_element--delayed {
+	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s; 
+}
+
+.m-scene.is-exiting .scene_element--fadeinright {
+  -webkit-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+}
+
+.m-scene.is-exiting .scene_element--fadeinleft {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+}
+
+.m-scene.is-exiting .scene_element--fadein {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut; 
+}
+
+.m-scene.is-exiting .scene_element--delayed {
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s; 
+}
+
+.m-scene.is-exiting .scene_element--fadeindown, 
+.m-scene.is-exiting .scene_element--fadeinup {
+	-webkit-animation-direction: alternate-reverse;
+	animation-direction: alternate-reverse; 
+}

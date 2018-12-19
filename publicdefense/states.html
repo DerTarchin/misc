@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Indigent Defense Crisis</title>
+
+    <!-- jQuery (necessary for some plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/utils.js"></script>
+
+    <!-- CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/keyframes.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="m-scene" id="main">
+        <div class="scene_element scene_element--fadein">
+            <div class="back">
+                <a href="index.html">back</a>
+            </div>
+            <div class="right-panel" style="width: 75%; height: auto;">
+                <div style="height: 100%;">
+                    <div class="floating-title" style="text-align: right; margin-right: 0">
+                        Comparing the <span class="heavy">States</span>
+                    </div>
+                    <div class="floating-info" style="text-align: right; font-size: 15px; float: right;">
+                        <p>The chart below displays the <b>total expidentures</b> per state on the <em>x-axis</em> and <b>total population</b> on the <em>y-axis</em>.</p>
+                        <p>In the United States, 22 states have state funded public defense offices, and 27 states county or locally funded public defense offices. The state-funded ones release annual data on their caseload for the year. The size of the bubbles below represent the <b>total caseload, in ten-thousands</b>. This value is the third value visible when you hover over a point.</p>
+                        <br>
+                        <small class="citation">All data shown is from 2008 reports and statistics from <a href="https://www.bjs.gov/index.cfm?ty=dcdetail&iid=401">The Bureau of Justice Statistics</a></small>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 100vh; width: 100%; padding: 50px;">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <script>
+
+                // x: in millions
+                // y: in thousands
+                // z: 
+
+                var color = Chart.helpers.color;
+                var bubbleChartData = {
+                    animation: {
+                        duration: 10000
+                    },
+                    datasets: [{
+                        label: "Alabama",
+                        backgroundColor: color('#3b3f4b').alpha(0.5).rgbString(),
+                        borderColor: color('#3b3f4b'),
+                        borderWidth: 1,
+                        data: [{x: 67749, y: 4447, r: null}]
+                    },{
+                        label: "Alaska",
+                        backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                        borderColor: color('#474f56'),
+                        borderWidth: 1,
+                        data: [{x: 19532, y: 627, r: null}]
+                    },{
+                        label: "Arizona",
+                        backgroundColor: color('#576b69').alpha(0.5).rgbString(),
+                        borderColor: color('#576b69'),
+                        borderWidth: 1,
+                        data: [{x: 2611, y: 5131, r: null}]
+                    },{
+                        label: "Arkansas",
+                        backgroundColor: color('#728c7d').alpha(0.5).rgbString(),
+                        borderColor: color('#728c7d'),
+                        borderWidth: 1,
+                        data: [{x: 28744, y: 2673, r: 8.3810}]
+                    },{
+                        label: "California",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 24131, y: 33872, r: null}]
+                    },{
+                        label: "Colorado",
+                        backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                        borderColor: color('#b2bea9'),
+                        borderWidth: 1,
+                        data: [{x: 80906, y: 4301, r: 9.0620}]
+                    },{
+                        label: "Connecticut",
+                        backgroundColor: color('#e0d5c3').alpha(0.5).rgbString(),
+                        borderColor: color('#e0d5c3'),
+                        borderWidth: 1,
+                        data: [{x: 48062, y: 3406, r: 8.3100}]
+                    },{
+                        label: "Delaware",
+                        backgroundColor: color('#8c705e').alpha(0.5).rgbString(),
+                        borderColor: color('#8c705e'),
+                        borderWidth: 1,
+                        data: [{x: 14944, y: 784, r: 2.9410}]
+                    },{
+                        label: "Florida",
+                        backgroundColor: color('#795850').alpha(0.5).rgbString(),
+                        borderColor: color('#795850'),
+                        borderWidth: 1,
+                        data: [{x: 239255, y: 15982, r: null}]
+                    },{
+                        label: "Georgia",
+                        backgroundColor: color('#57393e').alpha(0.5).rgbString(),
+                        borderColor: color('#57393e'),
+                        borderWidth: 1,
+                        data: [{x: 71050, y: 8186, r: null}]
+                    },{
+                        label: "Hawaii",
+                        backgroundColor: color('#3b3f4b').alpha(0.5).rgbString(),
+                        borderColor: color('#3b3f4b'),
+                        borderWidth: 1,
+                        data: [{x: 9732, y: 1212, r: 4.3770}]
+                    },{
+                        label: "Idaho",
+                        backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                        borderColor: color('#474f56'),
+                        borderWidth: 1,
+                        data: [{x: 2052, y: 1294, r: null}]
+                    },{
+                        label: "Illinois",
+                        backgroundColor: color('#576b69').alpha(0.5).rgbString(),
+                        borderColor: color('#576b69'),
+                        borderWidth: 1,
+                        data: [{x: 24424, y: 12419, r: null}]
+                    },{
+                        label: "Indiana",
+                        backgroundColor: color('#728c7d').alpha(0.5).rgbString(),
+                        borderColor: color('#728c7d'),
+                        borderWidth: 1,
+                        data: [{x: 21778, y: 6080, r: null}]
+                    },{
+                        label: "Iowa",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 52424, y: 2926, r: 7.0150}]
+                    },{
+                        label: "Kansas",
+                        backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                        borderColor: color('#b2bea9'),
+                        borderWidth: 1,
+                        data: [{x: 23427, y: 2688, r: null}]
+                    },{
+                        label: "Kentucky",
+                        backgroundColor: color('#e0d5c3').alpha(0.5).rgbString(),
+                        borderColor: color('#e0d5c3'),
+                        borderWidth: 1,
+                        data: [{x: 40087, y: 4042, r: 14.8520}]
+                    },{
+                        label: "Louisiana",
+                        backgroundColor: color('#8c705e').alpha(0.5).rgbString(),
+                        borderColor: color('#8c705e'),
+                        borderWidth: 1,
+                        data: [{x: 28355, y: 4469, r: null}]
+                    },{
+                        label: "Maine",
+                        backgroundColor: color('#795850').alpha(0.5).rgbString(),
+                        borderColor: color('#795850'),
+                        borderWidth: 1,
+                        data: [{x: 13959, y: 1275, r: null}]
+                    },{
+                        label: "Maryland",
+                        backgroundColor: color('#57393e').alpha(0.5).rgbString(),
+                        borderColor: color('#57393e'),
+                        borderWidth: 1,
+                        data: [{x: 89141, y: 5296, r: 19.975}]
+                    },{
+                        label: "Massachusetts",
+                        backgroundColor: color('#3b3f4b').alpha(0.5).rgbString(),
+                        borderColor: color('#3b3f4b'),
+                        borderWidth: 1,
+                        data: [{x: 204325, y: 6349, r: 1.682}]
+                    },{
+                        label: "Michigan",
+                        backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                        borderColor: color('#474f56'),
+                        borderWidth: 1,
+                        data: [{x: 13622, y: 9938, r: null}]
+                    },{
+                        label: "Minnesota",
+                        backgroundColor: color('#576b69').alpha(0.5).rgbString(),
+                        borderColor: color('#576b69'),
+                        borderWidth: 1,
+                        data: [{x: 67370, y: 4919, r: 13.912}]
+                    },{
+                        label: "Mississippi",
+                        backgroundColor: color('#728c7d').alpha(0.5).rgbString(),
+                        borderColor: color('#728c7d'),
+                        borderWidth: 1,
+                        data: [{x: 2810, y: 2845, r: null}]
+                    },{
+                        label: "Missouri",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 34501, y: 5595, r: 8.316}]
+                    },{
+                        label: "Montana",
+                        backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                        borderColor: color('#b2bea9'),
+                        borderWidth: 1,
+                        data: [{x: 19711, y: 902, r: 2.265}]
+                    },{
+                        label: "Nebraska",
+                        backgroundColor: color('#e0d5c3').alpha(0.5).rgbString(),
+                        borderColor: color('#e0d5c3'),
+                        borderWidth: 1,
+                        data: [{x: 3337, y: 1711, r: null}]
+                    },{
+                        label: "Nevada",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 1927, y: 1998, r: null}]
+                    },{
+                        label: "New Hampshire",
+                        backgroundColor: color('#8c705e').alpha(0.5).rgbString(),
+                        borderColor: color('#8c705e'),
+                        borderWidth: 1,
+                        data: [{x: 16581, y: 1236, r: 2.413}]
+                    },{
+                        label: "New Jersey",
+                        backgroundColor: color('#795850').alpha(0.5).rgbString(),
+                        borderColor: color('#795850'),
+                        borderWidth: 1,
+                        data: [{x: 110640, y: 8414, r: 10.024}]
+                    },{
+                        label: "New Mexico",
+                        backgroundColor: color('#57393e').alpha(0.5).rgbString(),
+                        borderColor: color('#57393e'),
+                        borderWidth: 1,
+                        data: [{x: 41293, y: 1819, r: 7.274}]
+                    },{
+                        label: "New York",
+                        backgroundColor: color('#3b3f4b').alpha(0.5).rgbString(),
+                        borderColor: color('#3b3f4b'),
+                        borderWidth: 1,
+                        data: [{x: 100447, y: 18976, r: null}]
+                    },{
+                        label: "North Carolina",
+                        backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                        borderColor: color('#474f56'),
+                        borderWidth: 1,
+                        data: [{x: 116097, y: 8049, r: null}]
+                    },{
+                        label: "North Dakota",
+                        backgroundColor: color('#576b69').alpha(0.5).rgbString(),
+                        borderColor: color('#576b69'),
+                        borderWidth: 1,
+                        data: [{x: 4659, y: 626, r: 0.227}]
+                    },{
+                        label: "Ohio",
+                        backgroundColor: color('#728c7d').alpha(0.5).rgbString(),
+                        borderColor: color('#728c7d'),
+                        borderWidth: 1,
+                        data: [{x: 86076, y: 11353, r: null}]
+                    },{
+                        label: "Oklahoma",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 17361, y: 3451, r: null}]
+                    },{
+                        label: "Oregon",
+                        backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                        borderColor: color('#b2bea9'),
+                        borderWidth: 1,
+                        data: [{x: 106614, y: 3421, r: null}]
+                    },{
+                        label: "Pennsylvania",
+                        backgroundColor: color('#e0d5c3').alpha(0.5).rgbString(),
+                        borderColor: color('#e0d5c3'),
+                        borderWidth: 1,
+                        data: [{x: null, y: 12281, r: null}]
+                    },{
+                        label: "Rhode Island",
+                        backgroundColor: color('#8c705e').alpha(0.5).rgbString(),
+                        borderColor: color('#8c705e'),
+                        borderWidth: 1,
+                        data: [{x: 12673, y: 1048, r: 1.876}]
+                    },{
+                        label: "South Carolina",
+                        backgroundColor: color('#795850').alpha(0.5).rgbString(),
+                        borderColor: color('#795850'),
+                        borderWidth: 1,
+                        data: [{x: 23763, y: 4012, r: null}]
+                    },{
+                        label: "South Dakota",
+                        backgroundColor: color('#57393e').alpha(0.5).rgbString(),
+                        borderColor: color('#57393e'),
+                        borderWidth: 1,
+                        data: [{x: 769, y: 755, r: null}]
+                    },{
+                        label: "Tennessee",
+                        backgroundColor: color('#3b3f4b').alpha(0.5).rgbString(),
+                        borderColor: color('#3b3f4b'),
+                        borderWidth: 1,
+                        data: [{x: 62152, y: 5689, r: null}]
+                    },{
+                        label: "Texas",
+                        backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                        borderColor: color('#474f56'),
+                        borderWidth: 1,
+                        data: [{x: 19248, y: 20852, r: null}]
+                    },{
+                        label: "Utah",
+                        backgroundColor: color('#576b69').alpha(0.5).rgbString(),
+                        borderColor: color('#576b69'),
+                        borderWidth: 1,
+                        data: [{x: 7, y: 2233, r: null}]
+                    },{
+                        label: "Vermont",
+                        backgroundColor: color('#728c7d').alpha(0.5).rgbString(),
+                        borderColor: color('#728c7d'),
+                        borderWidth: 1,
+                        data: [{x: 10476, y: 609, r: 1.169}]
+                    },{
+                        label: "Virginia",
+                        backgroundColor: color('#92a390').alpha(0.5).rgbString(),
+                        borderColor: color('#92a390'),
+                        borderWidth: 1,
+                        data: [{x: 40985, y: 7079, r: 9.534}]
+                    },{
+                        label: "Washington",
+                        backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                        borderColor: color('#b2bea9'),
+                        borderWidth: 1,
+                        data: [{x: 27015, y: 5894, r: null}]
+                    },{
+                        label: "West Virginia",
+                        backgroundColor: color('#e0d5c3').alpha(0.5).rgbString(),
+                        borderColor: color('#e0d5c3'),
+                        borderWidth: 1,
+                        data: [{x: 37538, y: 1808, r: null}]
+                    },{
+                        label: "Wisconsin",
+                        backgroundColor: color('#8c705e').alpha(0.5).rgbString(),
+                        borderColor: color('#8c705e'),
+                        borderWidth: 1,
+                        data: [{x: 85102, y: 5364, r: 14.24}]
+                    },{
+                        label: "Wyoming",
+                        backgroundColor: color('#795850').alpha(0.5).rgbString(),
+                        borderColor: color('#795850'),
+                        borderWidth: 1,
+                        data: [{x: 7496, y: 494, r: 1.298}]
+                    }]
+                };
+
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myChart = new Chart(ctx, {
+                    type: 'bubble',
+                    data: bubbleChartData,
+                    options: {
+                        responsive: true,
+                        legend: false,
+                        maintainAspectRatio: false,
+                        title:{ display:false },
+                        tooltips: {
+                            mode: 'point',
+                            intersect: false,
+                        },
+                        scales: {
+                            yAxes: [{
+                                display: true,
+                                ticks: {
+                                    suggestedMin: 0
+                                },
+                                gridLines: {
+                                    display:false
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'population (in thousands)'
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
+                                    display: false
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'expenditures (million dollars)'
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

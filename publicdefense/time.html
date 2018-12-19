@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Indigent Defense Crisis</title>
+
+    <!-- jQuery (necessary for some plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/utils.js"></script>
+
+    <!-- CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/keyframes.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="m-scene" id="main">
+        <div class="back">
+            <a href="index.html">back</a>
+        </div>
+        <div class="left-panel scene_element scene_element--fadeinleft">
+            <div style="height: 50%; width: 100%">
+                <canvas id="chart-area" /></canvas>
+            </div>
+            <button id="addDataset" style="margin-top: 50px;">Add Year</button>
+        </div>
+        
+        <div class="right-panel scene_element scene_element--fadeinright">
+            <div style="text-align: right; width: 100%;">
+                <p style="font-size: 40px; text-transform: uppercase;">Over The<br>
+                <span class="heavy">Years</span></p>
+                <p>In 1963, as a result of the landmark case Gideon v. Wainwright, the Supreme Court held that the <i>state or local government had to provide a lawyer</i> to any defendant facing prison time who could not afford his or her own.</p>
+                <p>However, the public defense system that provides this represntation in the courts is terribly underfunded. Even over the last 20 years, while the number of cases has <b>increased over 40%</b>, annual funding for public defense offices has <b>dropped by 2%</b>.</p>
+                <p><small class="citation">
+                    Information and statistics from <a href="http://www.motherjones.com/politics/2013/05/public-defenders-gideon-supreme-court-charts">Mother Jones</a>, <a href="http://www.pbs.org/wgbh/pages/frontline/shows/bostonda/etc/stats.html">PBS</a>, <a href="http://www.justicepolicy.org/research/2756?utm_source=%2fsystemoverload&utm_medium=web&utm_campaign=redirect">Justice Policy Institute</a>, and the <a href="http://www.nytimes.com/2016/04/30/opinion/a-mockery-of-justice-for-the-poor.html?_r=0">New York Times</a>
+                </small></p>
+            </div>
+        </div>
+
+        <script>
+            var color = Chart.helpers.color;
+            var config = {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        data: [.991],
+                        backgroundColor: color('#92a390').rgbString(),
+                        label: 'Indigent Defense'
+                    },{
+                        data: [13.034],
+                        backgroundColor: color('#576b69').rgbString(),
+                        label: 'Corrections'
+                    },{
+                        data: [22.014],
+                        backgroundColor: color('#3b3f4b').rgbString(),
+                        label: 'Police Protection'
+                    }],
+                    labels: ["1986"]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0
+                            },
+                            gridLines: {
+                                display:false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'billion dollars'
+                            }
+                        }],
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }]
+                    }
+                }
+            };
+
+            var ctx = document.getElementById("chart-area").getContext("2d");
+            window.myPie = new Chart(ctx, config);
+
+            var colorNames = Object.keys(window.chartColors);
+            document.getElementById('addDataset').addEventListener('click', function() {
+                var labels = config.data.labels;
+
+                if(labels.length == 1) {
+                    // add 2002
+                    config.data.labels.push("2002");
+                    config.data.datasets[0].data.push(3.309);
+                    config.data.datasets[1].data.push(59.609);
+                    config.data.datasets[2].data.push(79.540);
+                }
+                else if(labels.length == 2) {
+                    // add 2005
+                    config.data.labels.push("2005");
+                    config.data.datasets[0].data.push(4.190);
+                    config.data.datasets[1].data.push(65.091);
+                    config.data.datasets[2].data.push(94.437);
+                }
+                else if(labels.length == 3) {
+                    // add 2008
+                    // change text to "add military"
+                    config.data.labels.push("2008");
+                    config.data.datasets[0].data.push(5.337);
+                    config.data.datasets[1].data.push(74.198);
+                    config.data.datasets[2].data.push(103.643);
+
+                    $(this).html("Show Military");
+                }
+                else {
+                    if($(this).html()=="Show Military") {
+                        // add military
+                        var military = {
+                            data: [426.600, 362.000, 506.000, 696.000],
+                            backgroundColor: color('#795850').rgbString(),
+                            label: 'Military'
+                        }
+                        config.data.datasets.push(military);
+                        $(this).html("Hide Military");
+                    }
+                    else {
+                        config.data.datasets.pop();
+                        $(this).html("Show Military");
+                    }
+                    
+                }
+
+                window.myPie.update();
+            });
+        </script>
+    </div>
+</body>
+
+</html>

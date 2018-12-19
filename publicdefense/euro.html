@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Indigent Defense Crisis</title>
+
+    <!-- jQuery (necessary for some plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/utils.js"></script>
+
+    <!-- CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/keyframes.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="m-scene" id="main">
+        <div class="scene_element scene_element--fadein">
+            <div class="back">
+                <a href="index.html">back</a>
+            </div>
+            <div class="floating-container" style="margin-right: 50px;">
+                <div class="floating-title">
+                    <span class="heavy">Europe</span>&nbsp;&&nbsp;<span class="heavy">USA</span>
+                </div>
+                <div class="floating-info">
+                    The chart below displays the <b>annual public budget</b> allocated to legal aid as part (in %) of the GDP per capita, in 2008 (Q3, Q13). 
+                    <br>
+                    By comparison, the total expidentures for public defense offices of the USA in 2010 were approximately <b>$2,310,040,000</b>.
+                    <br><br>
+                    <small class="citation">European country statistics are from figure 2.16 of <em>European Judicial Systems - Edition 2010 (data 2008)</em>
+                    <br>USA total expidenditure figure from <a href="https://www.bjs.gov/index.cfm?ty=dcdetail&iid=401">The Bureau of Justice Statistics</a></small>
+                </div>
+            </div>
+            <div style="height: 100vh;">
+                <canvas id="chart-area"></canvas>
+            </div>
+            <img class="annotation" id="usalabel" src="assets/imgs/usalabel.png" />
+
+            <script>
+            var color = Chart.helpers.color;
+            var config = {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        label: "%",
+                        data: [
+                            0.0001,
+                            0.0002,
+                            0.0003,
+                            0.001,
+                            0.003,
+                            0.004,
+                            0.01,
+                            0.01,
+                            0.011,
+                            0.012,
+                            0.018,
+                            0.02,
+                            0.021,
+                            0.022,
+                            0.023,
+                            0.023,
+                            0.024,
+                            0.03,
+                            0.032,
+                            0.049,
+                            0.05,
+                            0.05,
+                            0.07,
+                            0.11,
+                            0.15,
+                            0.16,
+                            0.29
+                        ],
+                        backgroundColor: [
+                            color('#3b3f4b').rgbString(),
+                            color('#474f56').rgbString(),
+                            color('#576b69').rgbString(),
+                            color('#728c7d').rgbString(),
+                            color('#92a390').rgbString(),
+                            color('#b2bea9').rgbString(),
+                            color('#e0d5c3').rgbString(),
+                            color('#8c705e').rgbString(),
+                            color('#795850').rgbString(),
+                            color('#57393e').rgbString(),
+                            color('#3b3f4b').rgbString(),
+                            color('#474f56').rgbString(),
+                            color('#576b69').rgbString(),
+                            color('#728c7d').rgbString(),
+                            color('#92a390').rgbString(),
+                            color('#b2bea9').rgbString(),
+                            color('#e0d5c3').rgbString(),
+                            color('#8c705e').rgbString(),
+                            color('#795850').rgbString(),
+                            color('#57393e').rgbString(),
+                            color('#3b3f4b').rgbString(),
+                            color('#474f56').rgbString(),
+                            color('#576b69').rgbString(),
+                            color('#728c7d').rgbString(),
+                            color('#92a390').rgbString(),
+                            color('#b2bea9').rgbString(),
+                            color('#e0d5c3').rgbString(),
+                            color('#8c705e').rgbString(),
+                            color('#795850').rgbString(),
+                            color('#57393e').rgbString()
+                        ]
+                    }],
+                    labels: [
+                        "United States",
+                        "Ukraine",
+                        "Hungary",
+                        "Greece",
+                        "Romania",
+                        "Armenia",
+                        "Austria",
+                        "Italy",
+                        "Poland",
+                        "Turkey",
+                        "Bulgaria",
+                        "France",
+                        "Belgium",
+                        "Czech Republic",
+                        "Switzerland",
+                        "Spain",
+                        "Portugal",
+                        "Finland",
+                        "Denmark",
+                        "Sweden",
+                        "Ireland",
+                        "Norway",
+                        "Netherlands",
+                        "Iceland",
+                        "UK-England & Whales",
+                        "UK-Scotland",
+                        "UK-Northern Ireland"
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                suggestedMin: 0
+                            }
+                        }]
+                    },
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'center',
+                    },
+                    title: {
+                        display: false,
+                    },
+                    scales: {
+                      xAxes: [{
+                        display: false
+                      }],
+                      yAxes: [{
+                        display: false
+                      }],
+                    },
+                    display: true
+                }
+            };
+
+            var ctx = document.getElementById("chart-area");
+            window.myBarChart = new Chart(ctx, config);
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

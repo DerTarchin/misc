@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Indigent Defense Crisis</title>
+
+    <!-- jQuery (necessary for some plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/utils.js"></script>
+
+    <!-- CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/keyframes.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato:700,400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="m-scene" id="main">
+      <div class="back scene_element scene_element--fadein">
+          <a href="index.html">back</a>
+      </div>
+      <div class="right-panel scene_element scene_element--fadeinright" style="z-index: 10">
+          <div style=" width: 100%; text-align: right; font-size: 15px; ">
+          <p style="font-size: 40px; text-transform: uppercase;"><span class="heavy">Private Law Firms</span>&nbsp;vs<br>
+          <span class="heavy">Public Defense Offices</span></p>
+          <p>
+          One major factor that helps establish the funding and caseload crisis of public offices is comparing them with private law firms. In 2010, 12% of county-funded public defense offices recieved <b>over 5000 cases</b>, and the average number of attorneys in public offices across the US is a measly 15. A public defender can work any number of years in these stressful office conditions, but their salaries will never exceed the <b>maximum authorized value of $68k</b> a year. In private firms, the longer you work, the better you get paid. Partners that have been with a firm for over 15-20 years can have salaries <b>over a million dollars</b>.
+          </p>
+          <p>
+          As is the nature with private institutions, it is not common to find publically released statistics regarding employee salaries, annual expidentures, number of employees, etc. However, through some deduction using average and ideal statistics, these statistics have been compiled to compare private law firms with state or county funded public defense offices. 
+          </p>
+          <p>
+          The compass chart on the left represents four datasets. the <b>north</b>-most datapoints represent the average salary for full-time attorneys. <b>East</b> represents the estimated average revenue for major private firms compared with the average expidentures for public offices. <b>South</b> compares how long attorneys stay in the office and <b>west</b> compares the average number of cases per office or firm.
+          </p>
+          <p><small class="citation">
+            Data collected through sources including <a href="https://www.bjs.gov/index.cfm?ty=dcdetail&iid=401">The Bureau of Justice Statistics</a>, <em><a href="http://work.chron.com/average-hourly-wage-law-firm-partner-11856.html">work.chron.com</a></em>, <a href="http://www.abajournal.com/news/article/this_law_firm_will_spend_more_than_25m_in_legal_advertising_this_year_repor">ABA Journal</a>, and <a href="http://www.inc.com/jeff-haden/how-to-evaluate-law-firm-financials-wed.html">Inc magazine</a>.
+          </small></p>
+        </div>
+      </div>
+      <div style="height: 100vh; width: 100%; overflow: hidden; margin-left: -150px; " class="scene_element scene_element--fadein">
+        <div style="height: 120vh; width: 100%; margin-top: -200px;">
+          <canvas id="chart-area"></canvas>
+        </div>
+      </div>
+
+      <script>
+        var color = Chart.helpers.color;
+        var config = {
+            type: 'radar',
+            data: {
+                datasets: [{
+                    label: "Private Firm",
+                    backgroundColor: color('#474f56').alpha(0.5).rgbString(),
+                    borderColor: color('#3b3f4b').rgbString(),
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                    data: [113.3, 111, 252, 80]
+                },{
+                    label: "Public Firm",
+                    backgroundColor: color('#b2bea9').alpha(0.5).rgbString(),
+                    borderColor: color('#92a390').rgbString(),
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(179,181,198,1)",
+                    data: [50, 2.4, 72, 366]
+                }],
+                labels: [
+                    "Ave. Salary ($ in thousands)",
+                    "Ave. Private Firm Revenue vs Ave. Public Office Expidentures ($ in millions)",
+                    "Est. Ave. Attorney Turnover (months)",
+                    "Number of Cases"
+                ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                },
+                // legend: {
+                //     position: 'center',
+                // },
+                // title: {
+                //     display: false,
+                // },
+                // display: true,
+                scale: {display: false}
+                // gridLines: {drawTicks: false},
+                // ticks: {display: false}
+            }
+        };
+        var ctx = document.getElementById("chart-area");
+        window.myRadarChart = new Chart(ctx, config);
+
+      </script>
+    </div>
+
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/lazyloader.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/smoothState.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </body>
+</html>
