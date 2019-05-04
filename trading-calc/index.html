@@ -492,9 +492,10 @@ function roth(val) {
   }
 
   var html = "<br>" + to + "<em class='ast'>*********************</em>" + tc;
-  html += "40% > <em>$</em>MDY : $" + pretty((variables["capital"] * 0.4).toFixed(2)) + "<br>"
-  html += "30% > <em>$</em>SVXY: $" + pretty((variables["capital"] * 0.3).toFixed(2)) + "<br>"
-  html += "30% > <em>$</em>ZIV : $" + pretty((variables["capital"] * 0.3).toFixed(2)) + "<br>"
+  html += "10% > misc : $" + pretty((variables["capital"] * 0.1).toFixed(2)) + "<br>"
+  html += "54% > <em>$</em>MDY : $" + pretty((variables["capital"] * 0.54).toFixed(2)) + "<br>"
+  html += "18% > <em>$</em>SVXY: $" + pretty((variables["capital"] * 0.18).toFixed(2)) + "<br>"
+  html += "18% > <em>$</em>ZIV : $" + pretty((variables["capital"] * 0.18).toFixed(2)) + "<br>"
   html += to + "<em class='ast'>*********************</em>" + tc;
 
   $term.append(html);
