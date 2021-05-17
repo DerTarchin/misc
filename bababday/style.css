@@ -1,0 +1,54 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Fredoka One', cursive;
+  background-image: url("bg.jpg");
+  background-repeat: repeat;
+}
+body > *:not(video) {
+  padding: 0 100px;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 2px 2px white;
+}
+body > * {
+  z-index: 1;
+}
+body h1 {
+  font-size: 50px;
+  background: rgba(255,255,255,.6);
+  margin-bottom: 0;
+  padding-top: 35px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+body p {
+  margin-top: 0;
+  font-size: 20px;
+  padding-top: 50px;
+  padding-bottom: 35px;
+  background: rgba(255,255,255,.6);
+}
+body > .bg {
+  background: #f2ebe5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: .6;
+  pointer-events: none;
+  z-index: 0;
+}
+video {
+  border: 10px solid lightblue;
+  border-radius: 25px;
+  width: calc(100% - 100px);
+  max-width: 800px;
+}
