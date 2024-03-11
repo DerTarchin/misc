@@ -8010,39 +8010,6 @@ p5.prototype.registerMethod('init', function p5playInit() {
 		$._decrementPreload();
 	}
 
-	if (window.location) {
-		let lh = location.hostname;
-		switch (lh) {
-			case '':
-			case '127.0.0.1':
-			case 'localhost':
-			case 'p5play.org':
-			case 'editor.p5js.org':
-			case 'codepen.io':
-			case 'codera.app':
-			case 'cdpn.io':
-			case 'glitch.com':
-			case 'replit.com':
-			case 'stackblitz.com':
-			case 'jsfiddle.net':
-			case 'aijs-912fe.web.app':
-				break;
-			default:
-				if (
-					/^[\d\.]+$/.test(lh) ||
-					lh.endsWith('stackblitz.io') ||
-					lh.endsWith('glitch.me') ||
-					lh.endsWith('replit.dev') ||
-					lh.endsWith('codehs.com') ||
-					lh.endsWith('openprocessing.org') ||
-					location.origin.endsWith('preview.p5js.org')
-				) {
-					break;
-				}
-				playIntro();
-		}
-	}
-
 	let userDisabledP5Errors = p5.disableFriendlyErrors;
 	p5.disableFriendlyErrors = true;
 
