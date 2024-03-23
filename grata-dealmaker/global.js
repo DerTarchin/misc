@@ -7,6 +7,8 @@ let gameOver = false;
 let autoMoveIntervalFrequency = 30;
 let autoMoveIntervalFrame = 0;
 
+const POST_MESSAGE_ID = 'grata-lead-gen-game';
+
 const COLOR_FADE_SPEED = 0.05;
 
 // utils and other constants

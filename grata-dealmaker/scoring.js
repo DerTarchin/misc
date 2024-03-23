@@ -8,9 +8,9 @@ let score = 0;
 
 const updateScore = (newPoints, type) => {
   score += newPoints;
-  console.log(`+$${formatNumber(newPoints * SCORE_MULTIPLIER, 1)}`);
-  console.log(`Score: $${formatNumber(score * SCORE_MULTIPLIER, 1)}`);
-  window.top?.postMessage({ src: 'grata-lead-gen-game', new_score: score, new_points: newPoints, point_type: type }, '*');
+  // console.log(`+$${formatNumber(newPoints * SCORE_MULTIPLIER, 1)}`);
+  // console.log(`Score: $${formatNumber(score * SCORE_MULTIPLIER, 1)}`);
+  window.top?.postMessage({ src: POST_MESSAGE_ID, new_score: score, new_points: newPoints, point_type: type }, '*');
 };
 
 const addRowScore = (rows) => {
@@ -21,6 +21,10 @@ const addRowScore = (rows) => {
 const addSpeedBonus = (distanceMoved) => {
   if(distanceMoved < 4) return;
   const multiplier = distanceMoved * BONUS_MULTIPLIER;
-  console.log('bonus:')
   updateScore(distanceMoved * BASE_BONUS_SCORE * multiplier, 'bonus');
 };
+
+const endGame = () => {
+  gameOver = true;
+  window.top?.postMessage({ src: POST_MESSAGE_ID, action: 'end-game' }, '*');
+}

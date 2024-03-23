@@ -51,10 +51,10 @@ const newCell = (gridX, gridY) => {
 };
 
 const setupCells = () => {
+  grid = [];
   for (row = 0; row < GRID_ROWS; row++) {
     grid.push([]);
     for (col = 0; col < GRID_COLS; col++) {
-      // grid[row].push({});
       grid[row].push(newCell(col, row));
     }
   }
@@ -93,7 +93,7 @@ const hasCollision = (player) => {
 
 // background grid
 const drawGrid = () => {
-  stroke(240);
+  stroke(230,230,240);
   fill(255);
   for (row = 0; row < GRID_ROWS; row++) {
     for (col = 0; col < GRID_COLS; col++) {
@@ -167,7 +167,6 @@ const embedCells = (activeCells, onCompletedRows) => {
       console.error(error);
       console.log("broke on:", gridY, gridX);
       console.log(activeCells);
-      a;
       console.log(grid);
     }
   });
@@ -176,3 +175,13 @@ const embedCells = (activeCells, onCompletedRows) => {
   const wasCompleted = collectCompletedRows();
   if (wasCompleted) onCompletedRows?.();
 };
+
+// garbage collection
+const resetGrid = () => {
+  grid.forEach(row => {
+    row.forEach(cell => {
+      cell.sprite.remove();
+    })
+  });
+  grid = [];
+}

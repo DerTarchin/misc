@@ -1,5 +1,18 @@
 let pause = false;
 
+const reset = () => {
+  gameOver = false;
+  pause = false;
+  score = 0;
+  player = undefined;
+  autoMoveIntervalFrequency = 30;
+  autoMoveIntervalFrame = 0;
+  particles = [];
+  resetGrid();
+  setupCells();
+  spawnPlayer();
+}
+
 function setup() {
   lightBlue = color(38, 217, 202);
   mediumBlue = color(0, 163, 208);
@@ -7,36 +20,34 @@ function setup() {
 
   Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  setupCells();
+  reset();
 
-  //   debug grid
-  // const prefillGrid = [
-  //   // 4
-  //   [5,2], [6,2], [5,3], [4,4], [5,4], [6,4],
-  //   // 0
-  //   [4,6], [5,6], [6,6], [4,7], [6,7], [4,8], [5,8], [6,8],
-  //   // 4
-  //   [5,10], [6,10], [5,11], [4,12], [5,12], [6,12],
-  // ].forEach(cell => {
-  //   grid[cell[1]][cell[0]].active = true;
-  // });
-
-  //   debug shape
-  // debugShape = "LeftAngle";
-  
-  // gameOver = true;
-
-  spawnPlayer();
+  // (allows for controls from grata-search)
+  window.addEventListener(
+    "message",
+    (e) => {
+      if(e.data?.src !== POST_MESSAGE_ID) return;
+      const { action, value } = e.data;
+      if(action === 'pause') pause = value;
+      if(action === 'reset') reset();
+    },
+    false,
+  );
 }
 
 function draw() {  
-  if (kb.presses("p")) pause = !pause;
-  if (pause) return;
-
+  // if (kb.presses("p")) pause = !pause;
   clear();
   background(255);
-
   drawGrid();
+
+  particles = particles.filter(p => !p.finished());
+  particles.forEach(p => {
+    p.update();
+    p.show();
+  })
+  
+  if (gameOver || !player) return;
 
   // if (kb.presses("arrowUp")) moveUp();
   if (kb.presses("arrowDown")) moveToBottom();
@@ -45,8 +56,6 @@ function draw() {
   if (kb.presses("a")) rotateLeft();
   if (kb.presses("d")) rotateRight();
 
-  if (gameOver) return;
-
   if (frameCount % autoMoveIntervalFrequency === autoMoveIntervalFrame) {
     if (isPlayerAtBottom()) {
       embedCells(getActiveShapeCells(player.shapeArray, player));
@@ -54,10 +63,4 @@ function draw() {
       increaseGameSpeed();
     } else moveDown();
   }
-  
-  particles = particles.filter(p => !p.finished());
-  particles.forEach(p => {
-    p.update();
-    p.show();
-  })
 }

@@ -16,7 +16,7 @@ const spawnPlayer = () => {
     gridY = -1;
   // before spawning player, check if game is over
   if (hasCollision({ shapeArray, gridX, gridY })) {
-    gameOver = true;
+    endGame();
     return;
   }
 

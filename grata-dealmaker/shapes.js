@@ -204,13 +204,6 @@ const drawShape = (shapeArray, x, y, fadeColor=1) => {
   }
 };
 
-// const getBorderCells = (shapeArray) => ({
-//   top: shapeArray[0],
-//   right: shapeArray.map((row) => row[row.length - 1]),
-//   bottom: shapeArray[shapeArray.length - 1],
-//   left: shapeArray.map((row) => row[0]),
-// });
-
 const getActiveShapeCells = (shapeArray, offset) => {
   const activeCells = [];
   for (row = 0; row < shapeArray.length; row++) {
