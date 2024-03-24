@@ -1,4 +1,4 @@
-let pause = false;
+let pause = true;
 
 const reset = () => {
   gameOver = false;
@@ -21,6 +21,7 @@ function setup() {
   Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 
   reset();
+  pause = true;
 
   // (allows for controls from grata-search)
   window.addEventListener(
@@ -35,6 +36,10 @@ function setup() {
   );
 }
 
+function mousePressed() {
+  pause = false
+}
+
 function draw() {  
   // if (kb.presses("p")) pause = !pause;
   clear();
@@ -47,7 +52,7 @@ function draw() {
     p.show();
   })
   
-  if (gameOver || !player) return;
+  if (gameOver || !player || pause) return;
 
   // if (kb.presses("arrowUp")) moveUp();
   if (kb.presses("arrowDown")) moveToBottom();
