@@ -6,6 +6,8 @@ let darkBlue;
 let gameOver = false;
 let autoMoveIntervalFrequency = 30;
 let autoMoveIntervalFrame = 0;
+let manualDownButtonLockedFrame = 0;
+let lockAllActionsFrame = 0;
 
 const POST_MESSAGE_ID = 'grata-lead-gen-game';
 

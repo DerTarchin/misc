@@ -7,6 +7,8 @@ const reset = () => {
   player = undefined;
   autoMoveIntervalFrequency = 30;
   autoMoveIntervalFrame = 0;
+  manualDownButtonLockedFrame = 0;
+  lockAllActionsFrame = 0;
   particles = [];
   resetGrid();
   setupCells();

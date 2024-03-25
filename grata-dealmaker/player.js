@@ -144,23 +144,30 @@ const moveDown = (a) => {
 };
 
 const moveRight = () => {
-  if (!player) return;
+  if (!player || frameCount <= lockAllActionsFrame) return;
   const nextCol = player.gridX + 1;
   if (hasCollision({ ...player, gridX: nextCol })) return;
+
+  manualDownButtonLockedFrame = frameCount + 2;
   player.gridX = nextCol;
   move();
 };
 
 const moveLeft = () => {
-  if (!player) return;
+  if (!player || frameCount <= lockAllActionsFrame) return;
   const nextCol = player.gridX - 1;
   if (hasCollision({ ...player, gridX: nextCol })) return;
+  
+  manualDownButtonLockedFrame = frameCount + 2;
   player.gridX = nextCol;
   move();
 };
 
 const moveToBottom = () => {
   const { distance } = getClosestFloorCell();
+
+  if(frameCount <= lockAllActionsFrame || frameCount <= manualDownButtonLockedFrame) return;
+  lockAllActionsFrame = frameCount + distance + 3;
 
   //   move down, but not beyond the bottom of the screen
   const heightOfShape = getHeightOfShape(player.shapeArray, player);
