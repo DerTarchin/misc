@@ -43,7 +43,7 @@
     "code": 111421,
     "reason": "Your name sounds elegant and botanical - your industry is all about growing beautiful plants and flowers!"
   },
-  "András Marozsi": {
+  "Andras Marozsi": {
     "code": 312230,
     "reason": "\"Marozsi\" sounds a bit like \"Marlboro\" - your industry is all about rolling up products that go up in smoke!"
   },
@@ -239,7 +239,7 @@
     "code": 541715,
     "reason": "\"Neil\" reminds us of Neil Armstrong - your industry is all about scientific breakthroughs and space exploration!"
   },
-  "Alexandrea Rodriguez": {
+  "Alex Rodriguez": {
     "code": 541850,
     "reason": "\"Rodriguez\" is a strong and recognizable name - your industry is all about making brands impossible to ignore on billboards and signs!"
   },
@@ -355,7 +355,7 @@
     "code": 512191,
     "reason": "\"Starer\" sounds like \"stardom\" - your industry is all about making Hollywood magic happen!"
   },
-  "Jackie Tilton Bonarrigo": {
+  "Jackie Tilton": {
     "code": 458110,
     "reason": "\"Tilton\" sounds stylish - your industry is all about selling trendy accessories!"
   },
@@ -394,5 +394,9 @@
   "Volodymyr Zagorodniy": {
     "code": 111998,
     "reason": "\"Zagorodniy\" means \"countryside\" in Ukrainian, aligning with farming and agriculture."
+  },
+  "Jacob Krebsbach": {
+    "code": 325414,
+    "reason": "\"Krebs\" is the German word for \"crab\" or \"cancer\" and is also associated with the Krebs cycle, a fundamental biochemical process—suggesting a connection to biotech and pharmaceuticals."
   }
 }
