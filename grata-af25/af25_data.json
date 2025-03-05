@@ -1,400 +1,398 @@
-[
-  {
-    "Quinn Batten": {
-      "code": 336611,
-      "reason": "\"Batten\" sounds like \"batten down the hatches,\" which relates to shipbuilding!"
-    },
-    "Hizal Celik": {
-      "code": 3312,
-      "reason": "\"Celik\" means \"steel\" in Turkish - your name is as strong as the industry itself!"
-    },
-    "Vamshi Chilukamari": {
-      "code": 112990,
-      "reason": "\"Chiluka\" means \"sparrow\" in Telugu - you’re soaring high in the world of exotic birds!"
-    },
-    "Geoffrey Chin": {
-      "code": 339116,
-      "reason": "\"Chin\" makes us think of smiles - your industry is all about crafting perfect dental solutions!"
-    },
-    "Caitlin Ciaramella": {
-      "code": 31134,
-      "reason": "\"Ciaramella\" sounds like \"Caramella,\" the Italian word for candy - your industry is all about sweet treats!"
-    },
-    "Francisco Diaz": {
-      "code": 11411,
-      "reason": "\"Francisco\" reminds us of San Francisco, famous for its seafood markets - you’re in the fishing industry!"
-    },
-    "Christie Frush": {
-      "code": 312120,
-      "reason": "\"Frush\" sounds like \"fresh,\" like a freshly poured beer - welcome to the brewery business!"
-    },
-    "Andres Garcia de Alba": {
-      "code": 721110,
-      "reason": "\"Alba\" means \"dawn\" in Spanish, and what better place to wake up than in a cozy hotel? Welcome to the hospitality industry!"
-    },
-    "Ankit Khullar": {
-      "code": 541512,
-      "reason": "\"Khullar\" sounds a bit like \"controller\" - a key part of every well-designed computer system!"
-    },
-    "Matthew Larkin": {
-      "code": 488190,
-      "reason": "\"Larkin\" sounds like \"lark,\" a bird that soars high - you’re in the aviation support industry, keeping planes in the sky!"
-    },
-    "Liane Longpré": {
-      "code": 111421,
-      "reason": "Your name sounds elegant and botanical - your industry is all about growing beautiful plants and flowers!"
-    },
-    "András Marozsi": {
-      "code": 312230,
-      "reason": "\"Marozsi\" sounds a bit like \"Marlboro\" - your industry is all about rolling up products that go up in smoke!"
-    },
-    "Brian McGrath": {
-      "code": 52394,
-      "reason": "Your name sounds like the name of a financial guru - you’re in portfolio management, making money moves!"
-    },
-    "Sanjay Menon": {
-      "code": 541330,
-      "reason": "\"Menon\" sounds like \"mentor,\" and engineers mentor the future - you’re in the engineering business!"
-    },
-    "Victor Riveros": {
-      "code": 221310,
-      "reason": "\"Riveros\" sounds like \"rivers\" - your industry is all about managing water supply!"
-    },
-    "Kelly Sample": {
-      "code": 541910,
-      "reason": "\"Sample\" makes us think of survey samples - your industry is all about collecting opinions and data!"
-    },
-    "David Sim": {
-      "code": 513210,
-      "reason": "\"Sim\" makes us think of simulations and gaming - your industry is all about publishing software that brings virtual worlds to life!"
-    },
-    "Gautum Suresh": {
-      "code": 325411,
-      "reason": "\"Suresh\" sounds like \"sure\" and \"healing\" - your industry is all about producing life-saving medicines!"
-    },
-    "Jay Tian": {
-      "code": 336411,
-      "reason": "\"Jay\" reminds us of the Blue Jay, a bird that soars through the sky - just like the airplanes your industry builds!"
-    },
-    "Kevin Wong": {
-      "code": 713290,
-      "reason": "\"Kevin\" makes us think of Kevin Malone from The Office, who famously spilled his chili - but in this case, we imagine him betting on the big game instead!"
-    },
-    "Alex Yanai": {
-      "code": 541715,
-      "reason": "\"Yanai\" has a futuristic sound - your industry is all about scientific breakthroughs and pushing the boundaries of innovation!"
-    },
-    "Andrew Bocskocsky": {
-      "code": 812930,
-      "reason": "\"Bocskocsky\" sounds like \"box car\" - your industry is all about giving vehicles a place to rest while their owners explore the city!"
-    },
-    "Nevin Raj": {
-      "code": 523999,
-      "reason": "\"Nevin\" sounds like \"net gain,\" a common finance term - your industry is all about making money grow!"
-    },
-    "Will Boyle": {
-      "code": 325998,
-      "reason": "\"Boyle\" reminds us of Boyle’s Law in chemistry - your industry is all about manufacturing specialized chemical products!"
-    },
-    "Rachel Brissette": {
-      "code": 315990,
-      "reason": "\"Brissette\" sounds like \"brisk\" and stylish - you’re in the fashion industry, creating trendy apparel accessories!"
-    },
-    "Jenna Kotcher": {
-      "code": 339940,
-      "reason": "\"Kotcher\" sounds like \"catcher,\" like a pen cap catching ink - you’re in the business of making office supplies!"
-    },
-    "Rachel Shope": {
-      "code": 4581,
-      "reason": "\"Shope\" sounds like \"shop\" - your industry is all about selling stylish clothing for the whole family!"
-    },
-    "Olivia Walmsley": {
-      "code": 713940,
-      "reason": "\"Walmsley\" sounds like someone who would run a wellness center - you’re in the fitness industry, helping people stay active!"
-    },
-    "Moises Cervantes Martinez": {
-      "code": 312112,
-      "reason": "\"Moises\" reminds us of Moses, who famously parted the waters - your industry is all about bottling and selling it!"
-    },
-    "Cristal Fitzpatrick": {
-      "code": 327212,
-      "reason": "Your name sounds like \"crystal,\" and your industry is all about crafting fine glassware!"
-    },
-    "Melissa Lim": {
-      "code": 541430,
-      "reason": "\"Lim\" is similar to \"Lime\", which makes us think of bright, fresh colors - your industry is all about creative visual design!"
-    },
-    "Samra Malim": {
-      "code": 311920,
-      "reason": "\"Samra\" sounds like \"simmer\" - just like a fresh cup of brewed coffee or tea in your industry!"
-    },
-    "Charles Pan": {
-      "code": 333241,
-      "reason": "\"Pan\" makes us think of frying pans and kitchen tools - your industry is all about manufacturing food prep equipment!"
-    },
-    "Michael Roberts": {
-      "code": 512240,
-      "reason": "\"Michael\" reminds us of the king of pop, Michael Jackson - your industry is all about producing hit records!"
-    },
-    "Connor Smith": {
-      "code": 332999,
-      "reason": "\"Smith\" comes from \"blacksmith\" - your industry is all about crafting metal products!"
-    },
-    "Richard Gruber": {
-      "code": 485999,
-      "reason": "\"Gruber\" sounds like \"Uber\" - your industry is all about getting people where they need to go!"
-    },
-    "Tommy Lyons": {
-      "code": 712130,
-      "reason": "\"Lyons\" sounds like \"Lions,\" and where’s the best place to see one up close? Your industry is all about preserving and showcasing wildlife!"
-    },
-    "Brendan Mahoney": {
-      "code": 311930,
-      "reason": "\"Ma honey\" sounds like \"my honey,\" and your industry is all about making things sweet - literally!"
-    },
-    "Li Ouyang": {
-      "code": 541713,
-      "reason": "\"Li\" is the element \"Lithium,\" a key element in cutting-edge tech - your industry is all about pushing the boundaries of innovation!"
-    },
-    "Pallavi Pal": {
-      "code": 541810,
-      "reason": "\"Pal\" makes us think of \"brand pal\" - your industry is all about helping companies create eye-catching ads!"
-    },
-    "Sindura Ravichandran": {
-      "code": 541360,
-      "reason": "\"Sindura\" sounds like \"cinder\" - your industry is all about studying the earth’s surface and what lies beneath!"
-    },
-    "Andy Schaffer": {
-      "code": 485320,
-      "reason": "\"Schaffer\" sounds like \"chauffeur\" - your industry is all about driving people around in style!"
-    },
-    "Spencer Schimel": {
-      "code": 561499,
-      "reason": "\"Schimel\" sounds like \"scheming\" - your industry is all about behind-the-scenes business strategy and operations!"
-    },
-    "Edmond Sysomboun": {
-      "code": 541519,
-      "reason": "\"Sys\" sounds like \"system\" - your industry is all about keeping tech systems running smoothly!"
-    },
-    "Mike Vinik": {
-      "code": 312120,
-      "reason": "\"Vinik\" sounds like \"vine,\" and where do the best vines lead? To a refreshing drink! Your industry is all about crafting great brews!"
-    },
-    "Kelly Wang": {
-      "code": 448310,
-      "reason": "\"Wang\" reminds us of Vera Wang, a famous designer - your industry is all about selling dazzling accessories!"
-    },
-    "Joe Woodard": {
-      "code": 321113,
-      "reason": "\"Woodard\" has \"wood\" right in the name - your industry is all about cutting and processing lumber!"
-    },
-    "Raihan Ashraf": {
-      "code": 621111,
-      "reason": "\"Raihan\" means \"fragrant herb\" in Arabic, often associated with healing - your industry is all about keeping people healthy!"
-    },
-    "Kayla Bleich": {
-      "code": 812112,
-      "reason": "\"Bleich\" sounds like \"bleach,\" a key part of hair styling - your industry is all about making people look their best!"
-    },
-    "Matt Bush": {
-      "code": 113210,
-      "reason": "\"Bush\" makes us think of, well, bushes! Your industry is all about growing and harvesting forest plants!"
-    },
-    "Alexandra Curley": {
-      "code": 335999,
-      "reason": "\"AC\" stands for \"Alternating Current\" - your industry is all about powering the world with electricity!"
-    },
-    "Michael D'Amico": {
-      "code": 311920,
-      "reason": "\"D’Amico\" has that Italian espresso vibe - your industry is all about roasting beans and keeping the world caffeinated!"
-    },
-    "Katerina Doricko": {
-      "code": 541310,
-      "reason": "\"Doricko\" reminds us of \"Doric,\" one of the classical Greek architectural orders - your industry is all about designing stunning buildings!"
-    },
-    "Conor Finn": {
-      "code": 523120,
-      "reason": "\"Finn\" makes us think of Wall Street’s legendary financiers - your industry is all about buying and selling stocks!"
-    },
-    "Alden French": {
-      "code": 312130,
-      "reason": "\"French\" is basically synonymous with fine wine - your industry is all about making and selling the finest vintages!"
-    },
-    "Victoria Ioppolo": {
-      "code": 713990,
-      "reason": "\"Ioppolo\" has an energetic ring to it - your industry is all about fun and entertainment!"
-    },
-    "Vaish Kaushik": {
-      "code": 541690,
-      "reason": "\"Vaish\" sounds like \"vision\" - your industry is all about providing expert advice and forward-thinking solutions!"
-    },
-    "Arla Knudsen": {
-      "code": 311514,
-      "reason": "\"Arla\" is also a major dairy brand - your industry is all about producing milk-based products!"
-    },
-    "Cristina Lafaurie Linero": {
-      "code": 711510,
-      "reason": "\"Lafaurie\" sounds poetic and elegant - your industry is all about creativity and artistic expression!"
-    },
-    "Neil Narang": {
-      "code": 541715,
-      "reason": "\"Neil\" reminds us of Neil Armstrong - your industry is all about scientific breakthroughs and space exploration!"
-    },
-    "Alexandrea Rodriguez": {
-      "code": 541850,
-      "reason": "\"Rodriguez\" is a strong and recognizable name - your industry is all about making brands impossible to ignore on billboards and signs!"
-    },
-    "Paul Schoenberg": {
-      "code": 512250,
-      "reason": "\"Schoenberg\" is the name of a famous composer - your industry is all about producing music that lasts a lifetime!"
-    },
-    "Maddie Volpe": {
-      "code": 112990,
-      "reason": "\"Volpe\" means \"fox\" in Italian - your industry is all about raising animals, from farm livestock to exotic creatures!"
-    },
-    "Rachel Vullo": {
-      "code": 512240,
-      "reason": "Your initials \"RV\" makes us think of \"Recreational Vehicles\" - your industry is all about two-wheel freedom and adventure!"
-    },
-    "Abby Carpenter": {
-      "code": 236220,
-      "reason": "\"Carpenter\" says it all - your industry is all about building things from the ground up!"
-    },
-    "Michelle Cook": {
-      "code": 311999,
-      "reason": "\"Cook\" is in your name - your industry is all about crafting delicious food products!"
-    },
-    "Philip Coughlin": {
-      "code": 325411,
-      "reason": "\"Cough\" in \"Coughlin\" makes us think of medicine - your industry is all about producing remedies that keep people healthy!"
-    },
-    "Jonathan Coulter": {
-      "code": 315210,
-      "reason": "\"Coulter\" sounds like \"couture\" - your industry is all about high-end fashion and expert tailoring!"
-    },
-    "Patrick Delaney": {
-      "code": 713990,
-      "reason": "\"Delaney\" sounds like \"delight\" - your industry is all about fun, entertainment, and making life more exciting!"
-    },
-    "Abhinav Devalla": {
-      "code": 511210,
-      "reason": "\"Devalla\" sounds like \"developer\" in Christopher Walken's voice - your industry is all about coding the future with cutting-edge software!"
-    },
-    "Grady Dittmaier": {
-      "code": 327910,
-      "reason": "\"Grady\" sounds gritty - your industry is all about making tough materials like sandpaper and grinding tools!"
-    },
-    "Brendan Dolan": {
-      "code": 316998,
-      "reason": "\"Dolan\" sounds luxurious, like fine leather - your industry is all about crafting premium leather goods!"
-    },
-    "John Fitzgerald": {
-      "code": 488119,
-      "reason": "\"Fitzgerald\" reminds us of the grand era of aviation - your industry is all about keeping airports running smoothly!"
-    },
-    "Ty Frisman": {
-      "code": 711219,
-      "reason": "\"Ty\" reminds us of sports legends - your industry is all about organizing thrilling games and competitions!"
-    },
-    "Tucker Green": {
-      "code": 111421,
-      "reason": "\"Green\" is in the name - your industry is all about growing plants and flowers!"
-    },
-    "Ani Hungund": {
-      "code": 541614,
-      "reason": "\"Hungund\" sounds like \"hung up,\" like on supply chains - your industry is all about optimizing logistics!"
-    },
-    "Jai Jindia": {
-      "code": 517911,
-      "reason": "\"Jindia\" sounds like \"India,\" a major hub for telecom services - your industry is all about keeping people connected!"
-    },
-    "Cassidy Kearns": {
-      "code": 512131,
-      "reason": "\"Cassidy\" makes us think of classic Hollywood cowboys - your industry is all about the magic of the big screen!"
-    },
-    "Ryan Kirkpatrick": {
-      "code": 621340,
-      "reason": "\"Kirkpatrick\" sounds like \"back crack,\" and your industry is all about helping people heal and move better!"
-    },
-    "David Lachs": {
-      "code": 114210,
-      "reason": "\"Lachs\" means \"salmon\" in German - your industry is all about catching wild game and fish!"
-    },
-    "Charlie Lawrence": {
-      "code": 611310,
-      "reason": "\"Lawrence\" makes us think of T.E. Lawrence, a scholar and explorer - your industry is all about higher education!"
-    },
-    "Maddie Lynch": {
-      "code": 624310,
-      "reason": "\"ML\" could stand for \"Mentor & Learn\" - your industry is all about helping people get back on their feet with new skills!"
-    },
-    "Catherine McFarland": {
-      "code": 312230,
-      "reason": "\"McFarland\" gives an old-timey feel - your industry is all about crafting classic tobacco products!"
-    },
-    "Lizzy Miggins": {
-      "code": 624410,
-      "reason": "\"Miggins\" sounds playful - your industry is all about taking care of little ones!"
-    },
-    "Eric Monroe": {
-      "code": 519130,
-      "reason": "\"Monroe\" reminds us of Hollywood stars - your industry is all about digital media and entertainment!"
-    },
-    "Jane Polyard": {
-      "code": 453110,
-      "reason": "\"Polyard\" sounds like \"pollinate\" - your industry is all about beautiful blooms!"
-    },
-    "Joe Roberts": {
-      "code": 311920,
-      "reason": "\"Cup of Joe\" means coffee - your industry is all about keeping people caffeinated!"
-    },
-    "Jimmy Sheehan": {
-      "code": 561611,
-      "reason": "\"Sheehan\" sounds like \"Sheer mystery\" - your industry is all about uncovering the truth!"
-    },
-    "Howard Starer": {
-      "code": 512191,
-      "reason": "\"Starer\" sounds like \"stardom\" - your industry is all about making Hollywood magic happen!"
-    },
-    "Jackie Tilton Bonarrigo": {
-      "code": 448150,
-      "reason": "\"Tilton\" sounds stylish - your industry is all about selling trendy accessories!"
-    },
-    "Ava Torrance": {
-      "code": 561520,
-      "reason": "\"Torrance\" sounds like \"tour\" - your industry is all about crafting unforgettable travel experiences!"
-    },
-    "Natalie Wagner": {
-      "code": 512290,
-      "reason": "\"Wagner\" is a legendary composer - your industry is all about making music that lasts!"
-    },
-    "Sophia Williams": {
-      "code": 611620,
-      "reason": "\"Sophia\" comes from the Greek word for wisdom - your industry is all about teaching skills and training champions!"
-    },
-    "Fiona Yang": {
-      "code": 541614,
-      "reason": "\"Yang\" from \"Yin-Yang\" represents balance - your industry is all about making sure supply chains and logistics stay perfectly aligned!"
-    },
-    "Rena Ansbacher": {
-      "code": 523110,
-      "reason": "\"Ansbacher\" is similar to \"Ansbach,\" a historical financial hub in Germany, linking to investment banking."
-    },
-    "Ankur Singhai": {
-      "code": 541511,
-      "reason": "The name \"Ankur\" means \"sprout\" in Hindi, symbolizing innovation, aligning with software development."
-    },
-    "Dmytro Zuzuk": {
-      "code": 333111,
-      "reason": "\"Zuzuk\" sounds similar to \"Zhuk,\" which is linked to agriculture in Slavic regions."
-    },
-    "Sofia Stolyarenko": {
-      "code": 321918,
-      "reason": "\"Stolyar\" means carpenter in Russian/Ukrainian, linking to woodwork and millwork industries."
-    },
-    "Volodymyr Zagorodniy": {
-      "code": 111998,
-      "reason": "\"Zagorodniy\" means \"countryside\" in Ukrainian, aligning with farming and agriculture."
-    }
+{
+  "Quinn Batten": {
+    "code": 336611,
+    "reason": "\"Batten\" sounds like \"batten down the hatches,\" which relates to shipbuilding!"
+  },
+  "Hizal Celik": {
+    "code": 3312,
+    "reason": "\"Celik\" means \"steel\" in Turkish - your name is as strong as the industry itself!"
+  },
+  "Vamshi Chilukamari": {
+    "code": 112990,
+    "reason": "\"Chiluka\" means \"sparrow\" in Telugu - you’re soaring high in the world of exotic birds!"
+  },
+  "Geoffrey Chin": {
+    "code": 339116,
+    "reason": "\"Chin\" makes us think of smiles - your industry is all about crafting perfect dental solutions!"
+  },
+  "Caitlin Ciaramella": {
+    "code": 31134,
+    "reason": "\"Ciaramella\" sounds like \"Caramella,\" the Italian word for candy - your industry is all about sweet treats!"
+  },
+  "Francisco Diaz": {
+    "code": 11411,
+    "reason": "\"Francisco\" reminds us of San Francisco, famous for its seafood markets - you’re in the fishing industry!"
+  },
+  "Christie Frush": {
+    "code": 312120,
+    "reason": "\"Frush\" sounds like \"fresh,\" like a freshly poured beer - welcome to the brewery business!"
+  },
+  "Andres Garcia de Alba": {
+    "code": 721110,
+    "reason": "\"Alba\" means \"dawn\" in Spanish, and what better place to wake up than in a cozy hotel? Welcome to the hospitality industry!"
+  },
+  "Ankit Khullar": {
+    "code": 541512,
+    "reason": "\"Khullar\" sounds a bit like \"controller\" - a key part of every well-designed computer system!"
+  },
+  "Matthew Larkin": {
+    "code": 488190,
+    "reason": "\"Larkin\" sounds like \"lark,\" a bird that soars high - you’re in the aviation support industry, keeping planes in the sky!"
+  },
+  "Liane Longpré": {
+    "code": 111421,
+    "reason": "Your name sounds elegant and botanical - your industry is all about growing beautiful plants and flowers!"
+  },
+  "András Marozsi": {
+    "code": 312230,
+    "reason": "\"Marozsi\" sounds a bit like \"Marlboro\" - your industry is all about rolling up products that go up in smoke!"
+  },
+  "Brian McGrath": {
+    "code": 52394,
+    "reason": "Your name sounds like the name of a financial guru - you’re in portfolio management, making money moves!"
+  },
+  "Sanjay Menon": {
+    "code": 541330,
+    "reason": "\"Menon\" sounds like \"mentor,\" and engineers mentor the future - you’re in the engineering business!"
+  },
+  "Victor Riveros": {
+    "code": 221310,
+    "reason": "\"Riveros\" sounds like \"rivers\" - your industry is all about managing water supply!"
+  },
+  "Kelly Sample": {
+    "code": 541910,
+    "reason": "\"Sample\" makes us think of survey samples - your industry is all about collecting opinions and data!"
+  },
+  "David Sim": {
+    "code": 513210,
+    "reason": "\"Sim\" makes us think of simulations and gaming - your industry is all about publishing software that brings virtual worlds to life!"
+  },
+  "Gautum Suresh": {
+    "code": 325411,
+    "reason": "\"Suresh\" sounds like \"sure\" and \"healing\" - your industry is all about producing life-saving medicines!"
+  },
+  "Jay Tian": {
+    "code": 336411,
+    "reason": "\"Jay\" reminds us of the Blue Jay, a bird that soars through the sky - just like the airplanes your industry builds!"
+  },
+  "Kevin Wong": {
+    "code": 713290,
+    "reason": "\"Kevin\" makes us think of Kevin Malone from The Office, who famously spilled his chili - but in this case, we imagine him betting on the big game instead!"
+  },
+  "Alex Yanai": {
+    "code": 541715,
+    "reason": "\"Yanai\" has a futuristic sound - your industry is all about scientific breakthroughs and pushing the boundaries of innovation!"
+  },
+  "Andrew Bocskocsky": {
+    "code": 812930,
+    "reason": "\"Bocskocsky\" sounds like \"box car\" - your industry is all about giving vehicles a place to rest while their owners explore the city!"
+  },
+  "Nevin Raj": {
+    "code": 523999,
+    "reason": "\"Nevin\" sounds like \"net gain,\" a common finance term - your industry is all about making money grow!"
+  },
+  "Will Boyle": {
+    "code": 325998,
+    "reason": "\"Boyle\" reminds us of Boyle’s Law in chemistry - your industry is all about manufacturing specialized chemical products!"
+  },
+  "Rachel Brissette": {
+    "code": 315990,
+    "reason": "\"Brissette\" sounds like \"brisk\" and stylish - you’re in the fashion industry, creating trendy apparel accessories!"
+  },
+  "Jenna Kotcher": {
+    "code": 339940,
+    "reason": "\"Kotcher\" sounds like \"catcher,\" like a pen cap catching ink - you’re in the business of making office supplies!"
+  },
+  "Rachel Shope": {
+    "code": 4581,
+    "reason": "\"Shope\" sounds like \"shop\" - your industry is all about selling stylish clothing for the whole family!"
+  },
+  "Olivia Walmsley": {
+    "code": 713940,
+    "reason": "\"Walmsley\" sounds like someone who would run a wellness center - you’re in the fitness industry, helping people stay active!"
+  },
+  "Moises Cervantes Martinez": {
+    "code": 312112,
+    "reason": "\"Moises\" reminds us of Moses, who famously parted the waters - your industry is all about bottling and selling it!"
+  },
+  "Cristal Fitzpatrick": {
+    "code": 327212,
+    "reason": "Your name sounds like \"crystal,\" and your industry is all about crafting fine glassware!"
+  },
+  "Melissa Lim": {
+    "code": 541430,
+    "reason": "\"Lim\" is similar to \"Lime\", which makes us think of bright, fresh colors - your industry is all about creative visual design!"
+  },
+  "Samra Malim": {
+    "code": 311920,
+    "reason": "\"Samra\" sounds like \"simmer\" - just like a fresh cup of brewed coffee or tea in your industry!"
+  },
+  "Charles Pan": {
+    "code": 333241,
+    "reason": "\"Pan\" makes us think of frying pans and kitchen tools - your industry is all about manufacturing food prep equipment!"
+  },
+  "Michael Roberts": {
+    "code": 512240,
+    "reason": "\"Michael\" reminds us of the king of pop, Michael Jackson - your industry is all about producing hit records!"
+  },
+  "Connor Smith": {
+    "code": 332999,
+    "reason": "\"Smith\" comes from \"blacksmith\" - your industry is all about crafting metal products!"
+  },
+  "Richard Gruber": {
+    "code": 485999,
+    "reason": "\"Gruber\" sounds like \"Uber\" - your industry is all about getting people where they need to go!"
+  },
+  "Tommy Lyons": {
+    "code": 712130,
+    "reason": "\"Lyons\" sounds like \"Lions,\" and where’s the best place to see one up close? Your industry is all about preserving and showcasing wildlife!"
+  },
+  "Brendan Mahoney": {
+    "code": 311930,
+    "reason": "\"Ma honey\" sounds like \"my honey,\" and your industry is all about making things sweet - literally!"
+  },
+  "Li Ouyang": {
+    "code": 541713,
+    "reason": "\"Li\" is the element \"Lithium,\" a key element in cutting-edge tech - your industry is all about pushing the boundaries of innovation!"
+  },
+  "Pallavi Pal": {
+    "code": 541810,
+    "reason": "\"Pal\" makes us think of \"brand pal\" - your industry is all about helping companies create eye-catching ads!"
+  },
+  "Sindura Ravichandran": {
+    "code": 541360,
+    "reason": "\"Sindura\" sounds like \"cinder\" - your industry is all about studying the earth’s surface and what lies beneath!"
+  },
+  "Andy Schaffer": {
+    "code": 485320,
+    "reason": "\"Schaffer\" sounds like \"chauffeur\" - your industry is all about driving people around in style!"
+  },
+  "Spencer Schimel": {
+    "code": 561499,
+    "reason": "\"Schimel\" sounds like \"scheming\" - your industry is all about behind-the-scenes business strategy and operations!"
+  },
+  "Edmond Sysomboun": {
+    "code": 541519,
+    "reason": "\"Sys\" sounds like \"system\" - your industry is all about keeping tech systems running smoothly!"
+  },
+  "Mike Vinik": {
+    "code": 312120,
+    "reason": "\"Vinik\" sounds like \"vine,\" and where do the best vines lead? To a refreshing drink! Your industry is all about crafting great brews!"
+  },
+  "Kelly Wang": {
+    "code": 448310,
+    "reason": "\"Wang\" reminds us of Vera Wang, a famous designer - your industry is all about selling dazzling accessories!"
+  },
+  "Joe Woodard": {
+    "code": 321113,
+    "reason": "\"Woodard\" has \"wood\" right in the name - your industry is all about cutting and processing lumber!"
+  },
+  "Raihan Ashraf": {
+    "code": 621111,
+    "reason": "\"Raihan\" means \"fragrant herb\" in Arabic, often associated with healing - your industry is all about keeping people healthy!"
+  },
+  "Kayla Bleich": {
+    "code": 812112,
+    "reason": "\"Bleich\" sounds like \"bleach,\" a key part of hair styling - your industry is all about making people look their best!"
+  },
+  "Matt Bush": {
+    "code": 113210,
+    "reason": "\"Bush\" makes us think of, well, bushes! Your industry is all about growing and harvesting forest plants!"
+  },
+  "Alexandra Curley": {
+    "code": 335999,
+    "reason": "\"AC\" stands for \"Alternating Current\" - your industry is all about powering the world with electricity!"
+  },
+  "Michael D'Amico": {
+    "code": 311920,
+    "reason": "\"D’Amico\" has that Italian espresso vibe - your industry is all about roasting beans and keeping the world caffeinated!"
+  },
+  "Katerina Doricko": {
+    "code": 541310,
+    "reason": "\"Doricko\" reminds us of \"Doric,\" one of the classical Greek architectural orders - your industry is all about designing stunning buildings!"
+  },
+  "Conor Finn": {
+    "code": 523120,
+    "reason": "\"Finn\" makes us think of Wall Street’s legendary financiers - your industry is all about buying and selling stocks!"
+  },
+  "Alden French": {
+    "code": 312130,
+    "reason": "\"French\" is basically synonymous with fine wine - your industry is all about making and selling the finest vintages!"
+  },
+  "Victoria Ioppolo": {
+    "code": 713990,
+    "reason": "\"Ioppolo\" has an energetic ring to it - your industry is all about fun and entertainment!"
+  },
+  "Vaish Kaushik": {
+    "code": 541690,
+    "reason": "\"Vaish\" sounds like \"vision\" - your industry is all about providing expert advice and forward-thinking solutions!"
+  },
+  "Arla Knudsen": {
+    "code": 311514,
+    "reason": "\"Arla\" is also a major dairy brand - your industry is all about producing milk-based products!"
+  },
+  "Cristina Lafaurie Linero": {
+    "code": 711510,
+    "reason": "\"Lafaurie\" sounds poetic and elegant - your industry is all about creativity and artistic expression!"
+  },
+  "Neil Narang": {
+    "code": 541715,
+    "reason": "\"Neil\" reminds us of Neil Armstrong - your industry is all about scientific breakthroughs and space exploration!"
+  },
+  "Alexandrea Rodriguez": {
+    "code": 541850,
+    "reason": "\"Rodriguez\" is a strong and recognizable name - your industry is all about making brands impossible to ignore on billboards and signs!"
+  },
+  "Paul Schoenberg": {
+    "code": 512250,
+    "reason": "\"Schoenberg\" is the name of a famous composer - your industry is all about producing music that lasts a lifetime!"
+  },
+  "Maddie Volpe": {
+    "code": 112990,
+    "reason": "\"Volpe\" means \"fox\" in Italian - your industry is all about raising animals, from farm livestock to exotic creatures!"
+  },
+  "Rachel Vullo": {
+    "code": 512240,
+    "reason": "Your initials \"RV\" makes us think of \"Recreational Vehicles\" - your industry is all about two-wheel freedom and adventure!"
+  },
+  "Abby Carpenter": {
+    "code": 236220,
+    "reason": "\"Carpenter\" says it all - your industry is all about building things from the ground up!"
+  },
+  "Michelle Cook": {
+    "code": 311999,
+    "reason": "\"Cook\" is in your name - your industry is all about crafting delicious food products!"
+  },
+  "Philip Coughlin": {
+    "code": 325411,
+    "reason": "\"Cough\" in \"Coughlin\" makes us think of medicine - your industry is all about producing remedies that keep people healthy!"
+  },
+  "Jonathan Coulter": {
+    "code": 315210,
+    "reason": "\"Coulter\" sounds like \"couture\" - your industry is all about high-end fashion and expert tailoring!"
+  },
+  "Patrick Delaney": {
+    "code": 713990,
+    "reason": "\"Delaney\" sounds like \"delight\" - your industry is all about fun, entertainment, and making life more exciting!"
+  },
+  "Abhinav Devalla": {
+    "code": 511210,
+    "reason": "\"Devalla\" sounds like \"developer\" in Christopher Walken's voice - your industry is all about coding the future with cutting-edge software!"
+  },
+  "Grady Dittmaier": {
+    "code": 327910,
+    "reason": "\"Grady\" sounds gritty - your industry is all about making tough materials like sandpaper and grinding tools!"
+  },
+  "Brendan Dolan": {
+    "code": 316998,
+    "reason": "\"Dolan\" sounds luxurious, like fine leather - your industry is all about crafting premium leather goods!"
+  },
+  "John Fitzgerald": {
+    "code": 488119,
+    "reason": "\"Fitzgerald\" reminds us of the grand era of aviation - your industry is all about keeping airports running smoothly!"
+  },
+  "Ty Frisman": {
+    "code": 711219,
+    "reason": "\"Ty\" reminds us of sports legends - your industry is all about organizing thrilling games and competitions!"
+  },
+  "Tucker Green": {
+    "code": 111421,
+    "reason": "\"Green\" is in the name - your industry is all about growing plants and flowers!"
+  },
+  "Ani Hungund": {
+    "code": 541614,
+    "reason": "\"Hungund\" sounds like \"hung up,\" like on supply chains - your industry is all about optimizing logistics!"
+  },
+  "Jai Jindia": {
+    "code": 517911,
+    "reason": "\"Jindia\" sounds like \"India,\" a major hub for telecom services - your industry is all about keeping people connected!"
+  },
+  "Cassidy Kearns": {
+    "code": 512131,
+    "reason": "\"Cassidy\" makes us think of classic Hollywood cowboys - your industry is all about the magic of the big screen!"
+  },
+  "Ryan Kirkpatrick": {
+    "code": 621340,
+    "reason": "\"Kirkpatrick\" sounds like \"back crack,\" and your industry is all about helping people heal and move better!"
+  },
+  "David Lachs": {
+    "code": 114210,
+    "reason": "\"Lachs\" means \"salmon\" in German - your industry is all about catching wild game and fish!"
+  },
+  "Charlie Lawrence": {
+    "code": 611310,
+    "reason": "\"Lawrence\" makes us think of T.E. Lawrence, a scholar and explorer - your industry is all about higher education!"
+  },
+  "Maddie Lynch": {
+    "code": 624310,
+    "reason": "\"ML\" could stand for \"Mentor & Learn\" - your industry is all about helping people get back on their feet with new skills!"
+  },
+  "Catherine McFarland": {
+    "code": 312230,
+    "reason": "\"McFarland\" gives an old-timey feel - your industry is all about crafting classic tobacco products!"
+  },
+  "Lizzy Miggins": {
+    "code": 624410,
+    "reason": "\"Miggins\" sounds playful - your industry is all about taking care of little ones!"
+  },
+  "Eric Monroe": {
+    "code": 519130,
+    "reason": "\"Monroe\" reminds us of Hollywood stars - your industry is all about digital media and entertainment!"
+  },
+  "Jane Polyard": {
+    "code": 453110,
+    "reason": "\"Polyard\" sounds like \"pollinate\" - your industry is all about beautiful blooms!"
+  },
+  "Joe Roberts": {
+    "code": 311920,
+    "reason": "\"Cup of Joe\" means coffee - your industry is all about keeping people caffeinated!"
+  },
+  "Jimmy Sheehan": {
+    "code": 561611,
+    "reason": "\"Sheehan\" sounds like \"Sheer mystery\" - your industry is all about uncovering the truth!"
+  },
+  "Howard Starer": {
+    "code": 512191,
+    "reason": "\"Starer\" sounds like \"stardom\" - your industry is all about making Hollywood magic happen!"
+  },
+  "Jackie Tilton Bonarrigo": {
+    "code": 448150,
+    "reason": "\"Tilton\" sounds stylish - your industry is all about selling trendy accessories!"
+  },
+  "Ava Torrance": {
+    "code": 561520,
+    "reason": "\"Torrance\" sounds like \"tour\" - your industry is all about crafting unforgettable travel experiences!"
+  },
+  "Natalie Wagner": {
+    "code": 512290,
+    "reason": "\"Wagner\" is a legendary composer - your industry is all about making music that lasts!"
+  },
+  "Sophia Williams": {
+    "code": 611620,
+    "reason": "\"Sophia\" comes from the Greek word for wisdom - your industry is all about teaching skills and training champions!"
+  },
+  "Fiona Yang": {
+    "code": 541614,
+    "reason": "\"Yang\" from \"Yin-Yang\" represents balance - your industry is all about making sure supply chains and logistics stay perfectly aligned!"
+  },
+  "Rena Ansbacher": {
+    "code": 523110,
+    "reason": "\"Ansbacher\" is similar to \"Ansbach,\" a historical financial hub in Germany, linking to investment banking."
+  },
+  "Ankur Singhai": {
+    "code": 541511,
+    "reason": "The name \"Ankur\" means \"sprout\" in Hindi, symbolizing innovation, aligning with software development."
+  },
+  "Dmytro Zuzuk": {
+    "code": 333111,
+    "reason": "\"Zuzuk\" sounds similar to \"Zhuk,\" which is linked to agriculture in Slavic regions."
+  },
+  "Sofia Stolyarenko": {
+    "code": 321918,
+    "reason": "\"Stolyar\" means carpenter in Russian/Ukrainian, linking to woodwork and millwork industries."
+  },
+  "Volodymyr Zagorodniy": {
+    "code": 111998,
+    "reason": "\"Zagorodniy\" means \"countryside\" in Ukrainian, aligning with farming and agriculture."
   }
-]
+}
