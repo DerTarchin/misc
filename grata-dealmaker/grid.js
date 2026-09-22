@@ -34,7 +34,7 @@ const newCell = (gridX, gridY) => {
     if (!cell.active && !DEBUG_MODE) return;
 
     noStroke();
-    if (!cell.active) fill("lightgray");
+    if (!cell.active) fill(isDarkMode ? color(25, 27, 34) : "lightgray");
     else fill(lerpColor(mediumBlue, darkBlue, cell.colorFade));
     rect(
       GRID_RENDER_OFFSET,
@@ -93,8 +93,8 @@ const hasCollision = (player) => {
 
 // background grid
 const drawGrid = () => {
-  stroke(230,230,240);
-  fill(255);
+  paintGridStroke();
+  paintCellFill();
   for (row = 0; row < GRID_ROWS; row++) {
     for (col = 0; col < GRID_COLS; col++) {
       const y = row * CELL_SIZE + CELL_MARGIN;

@@ -13,6 +13,44 @@ const POST_MESSAGE_ID = 'grata-lead-gen-game';
 
 const COLOR_FADE_SPEED = 0.05;
 
+// The host app passes dark mode as ?dark=true on load and as postMessage { dark }.
+let isDarkMode = new URLSearchParams(window.location.search).get("dark") === "true";
+
+// Empty cells and the canvas are the page surface. Light is white. Dark fills
+// are #08090B. Dark outlines are rgba(255,255,255,.1), the same 10% white used
+// for --color-gray-300 borders. p5 alpha is 0–255, so .1 is 25.5.
+const LIGHT_SURFACE = [255, 255, 255];
+const DARK_SURFACE = [8, 9, 11];
+const LIGHT_GRID_STROKE = [230, 230, 240];
+const DARK_GRID_STROKE = [255, 255, 255, 25.5];
+
+const syncDocumentTheme = () => {
+  document.documentElement.classList.toggle("is-dark", isDarkMode);
+};
+
+const setDarkMode = (dark) => {
+  isDarkMode = Boolean(dark);
+  syncDocumentTheme();
+};
+
+const paintCanvasBackground = () => {
+  const [red, green, blue] = isDarkMode ? DARK_SURFACE : LIGHT_SURFACE;
+  background(red, green, blue);
+};
+
+const paintCellFill = () => {
+  const [red, green, blue] = isDarkMode ? DARK_SURFACE : LIGHT_SURFACE;
+  fill(red, green, blue);
+};
+
+const paintGridStroke = () => {
+  const [red, green, blue, alpha] = isDarkMode ? DARK_GRID_STROKE : LIGHT_GRID_STROKE;
+  if (alpha === undefined) stroke(red, green, blue);
+  else stroke(red, green, blue, alpha);
+};
+
+syncDocumentTheme();
+
 // utils and other constants
 
 const increaseGameSpeed = () => {

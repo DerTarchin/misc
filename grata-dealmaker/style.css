@@ -1,6 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: #fff;
+}
+
+html.is-dark,
+html.is-dark body {
+  background: #08090b;
 }
 
 canvas {

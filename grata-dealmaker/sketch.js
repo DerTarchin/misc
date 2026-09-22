@@ -30,9 +30,10 @@ function setup() {
     "message",
     (e) => {
       if(e.data?.src !== POST_MESSAGE_ID) return;
-      const { action, value } = e.data;
+      const { action, value, dark } = e.data;
       if(action === 'pause') pause = value;
       if(action === 'reset') reset();
+      if(typeof dark === "boolean") setDarkMode(dark);
     },
     false,
   );
@@ -45,7 +46,7 @@ function mousePressed() {
 function draw() {  
   // if (kb.presses("p")) pause = !pause;
   clear();
-  background(255);
+  paintCanvasBackground();
   drawGrid();
 
   particles = particles.filter(p => !p.finished());
