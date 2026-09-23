@@ -4,9 +4,14 @@ html, body {
   background: #fff;
 }
 
-html.is-dark,
-html.is-dark body {
-  background: #08090b;
+html.is-intel,
+html.is-intel body {
+  background: #f9fafb;
+}
+
+html.is-intel-dark,
+html.is-intel-dark body {
+  background: #020203;
 }
 
 canvas {

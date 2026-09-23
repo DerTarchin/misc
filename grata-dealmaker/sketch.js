@@ -28,10 +28,11 @@ function setup() {
     "message",
     (e) => {
       if(e.data?.src !== POST_MESSAGE_ID) return;
-      const { action, value, dark } = e.data;
+      const { action, value, theme, dark } = e.data;
       if(action === 'pause') pause = value;
       if(action === 'reset') reset();
-      if(typeof dark === "boolean") setDarkMode(dark);
+      if (theme === "classic" || theme === "intel" || theme === "intel-dark") setScheme(theme);
+      else if (typeof dark === "boolean") setScheme(dark ? "intel-dark" : "intel");
     },
     false,
   );

@@ -35,7 +35,7 @@ const newCell = (gridX, gridY) => {
 
     noStroke();
     if (!cell.active) {
-      const [red, green, blue] = isDarkMode ? DARK_EMPTY : LIGHT_EMPTY;
+      const [red, green, blue] = palette.empty;
       fill(red, green, blue);
     } else fill(lerpColor(settledStart, settledEnd, cell.colorFade));
     rect(

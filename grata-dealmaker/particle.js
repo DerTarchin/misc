@@ -23,7 +23,7 @@ class Particle {
   }
 
   show() {
-    const [red, green, blue] = isDarkMode ? DARK_SPARKLE : LIGHT_SPARKLE;
+    const [red, green, blue] = palette.sparkle;
     // color(p5.Color, alpha) ignores the alpha and returns the original color.
     stroke(red, green, blue, this.alpha);
     strokeWeight(4);

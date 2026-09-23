@@ -15,57 +15,76 @@ const POST_MESSAGE_ID = 'grata-lead-gen-game';
 
 const COLOR_FADE_SPEED = 0.05;
 
-// The host app passes dark mode as ?dark=true on load and as postMessage { dark }.
-let isDarkMode = new URLSearchParams(window.location.search).get("dark") === "true";
+// Host passes ?theme=classic|intel|intel-dark before first paint, then postMessage { theme }.
+// ?dark=true remains the older intel-dark signal.
+const SCHEMES = {
+  // Classic Grata: white page, primary-200 grid, primary-500 blocks.
+  classic: {
+    surface: [255, 255, 255],
+    empty: [235, 242, 255],
+    active: [36, 100, 227],
+    settled: [36, 100, 227],
+    sparkle: [119, 159, 238],
+  },
+  // Intelligence light: app surface gray-50, secondary-soft grid, brand blocks.
+  intel: {
+    surface: [249, 250, 251],
+    empty: [226, 238, 242],
+    active: [21, 94, 117],
+    settled: [115, 168, 188],
+    sparkle: [38, 217, 202],
+  },
+  // Intelligence dark: app surface, brand-950 grid, brand-400 / brand-700 blocks.
+  "intel-dark": {
+    surface: [2, 2, 3],
+    empty: [12, 33, 40],
+    active: [71, 142, 167],
+    settled: [0, 79, 100],
+    sparkle: [115, 168, 188],
+  },
+};
 
-// Canvas is the page surface. Empty cells, the falling piece, and locked
-// cells use the intelligence prototype brand ramp (secondary-soft,
-// accent-foreground, primary-muted).
-const LIGHT_SURFACE = [255, 255, 255];
-const DARK_SURFACE = [8, 9, 11];
-const LIGHT_EMPTY = [226, 238, 242];
-// Dark secondary-soft is base-brand-950, not brand-800.
-const DARK_EMPTY = [12, 33, 40];
-const LIGHT_ACTIVE = [21, 94, 117];
-const DARK_ACTIVE = [71, 142, 167];
-const LIGHT_SETTLED = [115, 168, 188];
-const DARK_SETTLED = [0, 79, 100];
-// Bright flash when a piece locks, then the cell eases to the settled color.
-// Same idea as the old mediumBlue → darkBlue fade.
-const LIGHT_SPARKLE = [38, 217, 202];
-const DARK_SPARKLE = [115, 168, 188];
+const readInitialScheme = () => {
+  const params = new URLSearchParams(window.location.search);
+  const theme = params.get("theme");
+  if (SCHEMES[theme]) return theme;
+  if (params.get("dark") === "true") return "intel-dark";
+  return "classic";
+};
 
+let scheme = readInitialScheme();
+let palette = SCHEMES[scheme];
 let paletteReady = false;
 
 const syncDocumentTheme = () => {
-  document.documentElement.classList.toggle("is-dark", isDarkMode);
+  document.documentElement.classList.toggle("is-intel", scheme === "intel");
+  document.documentElement.classList.toggle("is-intel-dark", scheme === "intel-dark");
 };
 
 const applyPalette = () => {
-  const active = isDarkMode ? DARK_ACTIVE : LIGHT_ACTIVE;
-  const sparkle = isDarkMode ? DARK_SPARKLE : LIGHT_SPARKLE;
-  const settled = isDarkMode ? DARK_SETTLED : LIGHT_SETTLED;
-  activeStart = color(...sparkle);
-  activeEnd = color(...active);
-  settledStart = color(...sparkle);
-  settledEnd = color(...settled);
-  particleColor = color(...sparkle);
+  activeStart = color(...palette.sparkle);
+  activeEnd = color(...palette.active);
+  settledStart = color(...palette.sparkle);
+  settledEnd = color(...palette.settled);
+  particleColor = color(...palette.sparkle);
   paletteReady = true;
 };
 
-const setDarkMode = (dark) => {
-  isDarkMode = Boolean(dark);
+const setScheme = (next) => {
+  if (!SCHEMES[next]) return;
+  scheme = next;
+  palette = SCHEMES[next];
   syncDocumentTheme();
   if (paletteReady) applyPalette();
 };
 
 const paintCanvasBackground = () => {
-  const [red, green, blue] = isDarkMode ? DARK_SURFACE : LIGHT_SURFACE;
+  const [red, green, blue] = palette.surface;
   background(red, green, blue);
 };
 
 const paintEmptyCell = () => {
-  const [red, green, blue] = isDarkMode ? DARK_EMPTY : LIGHT_EMPTY;
+  const [red, green, blue] = palette.empty;
   noStroke();
   fill(red, green, blue);
 };
