@@ -1,8 +1,10 @@
 // Game Settings and settable Constants
 const DEBUG_MODE = false;
-let lightBlue;
-let mediumBlue;
-let darkBlue;
+let activeStart;
+let activeEnd;
+let settledStart;
+let settledEnd;
+let particleColor;
 let gameOver = false;
 let autoMoveIntervalFrequency = 30;
 let autoMoveIntervalFrame = 0;
@@ -16,21 +18,39 @@ const COLOR_FADE_SPEED = 0.05;
 // The host app passes dark mode as ?dark=true on load and as postMessage { dark }.
 let isDarkMode = new URLSearchParams(window.location.search).get("dark") === "true";
 
-// Empty cells and the canvas are the page surface. Light is white. Dark fills
-// are #08090B. Dark outlines are rgba(255,255,255,.1), the same 10% white used
-// for --color-gray-300 borders. p5 alpha is 0–255, so .1 is 25.5.
+// Canvas is the page surface. Empty cells, the falling piece, and locked
+// cells use the intelligence prototype brand ramp (secondary-soft,
+// accent-foreground, primary-muted).
 const LIGHT_SURFACE = [255, 255, 255];
 const DARK_SURFACE = [8, 9, 11];
-const LIGHT_GRID_STROKE = [230, 230, 240];
-const DARK_GRID_STROKE = [255, 255, 255, 25.5];
+const LIGHT_EMPTY = [226, 238, 242];
+const DARK_EMPTY = [9, 63, 79];
+const LIGHT_ACTIVE = [21, 94, 117];
+const DARK_ACTIVE = [71, 142, 167];
+const LIGHT_SETTLED = [115, 168, 188];
+const DARK_SETTLED = [0, 79, 100];
+
+let paletteReady = false;
 
 const syncDocumentTheme = () => {
   document.documentElement.classList.toggle("is-dark", isDarkMode);
 };
 
+const applyPalette = () => {
+  const active = isDarkMode ? DARK_ACTIVE : LIGHT_ACTIVE;
+  const settled = isDarkMode ? DARK_SETTLED : LIGHT_SETTLED;
+  activeStart = color(...active);
+  activeEnd = color(...active);
+  settledStart = color(...settled);
+  settledEnd = color(...settled);
+  particleColor = color(...settled);
+  paletteReady = true;
+};
+
 const setDarkMode = (dark) => {
   isDarkMode = Boolean(dark);
   syncDocumentTheme();
+  if (paletteReady) applyPalette();
 };
 
 const paintCanvasBackground = () => {
@@ -38,15 +58,10 @@ const paintCanvasBackground = () => {
   background(red, green, blue);
 };
 
-const paintCellFill = () => {
-  const [red, green, blue] = isDarkMode ? DARK_SURFACE : LIGHT_SURFACE;
+const paintEmptyCell = () => {
+  const [red, green, blue] = isDarkMode ? DARK_EMPTY : LIGHT_EMPTY;
+  noStroke();
   fill(red, green, blue);
-};
-
-const paintGridStroke = () => {
-  const [red, green, blue, alpha] = isDarkMode ? DARK_GRID_STROKE : LIGHT_GRID_STROKE;
-  if (alpha === undefined) stroke(red, green, blue);
-  else stroke(red, green, blue, alpha);
 };
 
 syncDocumentTheme();

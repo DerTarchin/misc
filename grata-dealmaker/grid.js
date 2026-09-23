@@ -4,7 +4,7 @@ const RECT_SIZE = 30;
 
 const CELL_MARGIN = RECT_SIZE / 8;
 const CELL_SIZE = RECT_SIZE + CELL_MARGIN;
-const CELL_RADIUS = RECT_SIZE / 4;
+const CELL_RADIUS = 12;
 
 const CANVAS_WIDTH = GRID_COLS * CELL_SIZE + CELL_MARGIN;
 const CANVAS_HEIGHT = GRID_ROWS * CELL_SIZE + CELL_MARGIN;
@@ -34,8 +34,10 @@ const newCell = (gridX, gridY) => {
     if (!cell.active && !DEBUG_MODE) return;
 
     noStroke();
-    if (!cell.active) fill(isDarkMode ? color(25, 27, 34) : "lightgray");
-    else fill(lerpColor(mediumBlue, darkBlue, cell.colorFade));
+    if (!cell.active) {
+      const [red, green, blue] = isDarkMode ? DARK_EMPTY : LIGHT_EMPTY;
+      fill(red, green, blue);
+    } else fill(lerpColor(settledStart, settledEnd, cell.colorFade));
     rect(
       GRID_RENDER_OFFSET,
       GRID_RENDER_OFFSET,
@@ -93,8 +95,7 @@ const hasCollision = (player) => {
 
 // background grid
 const drawGrid = () => {
-  paintGridStroke();
-  paintCellFill();
+  paintEmptyCell();
   for (row = 0; row < GRID_ROWS; row++) {
     for (col = 0; col < GRID_COLS; col++) {
       const y = row * CELL_SIZE + CELL_MARGIN;

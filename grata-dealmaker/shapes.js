@@ -184,7 +184,7 @@ const ShapeNames = Object.keys(Shapes);
 const rotate = (shapeName, rotation) => Shapes[shapeName][rotation];
 
 const drawShape = (shapeArray, x, y, fadeColor=1) => {
-  fill(lerpColor(lightBlue, mediumBlue, fadeColor));
+  fill(lerpColor(activeStart, activeEnd, fadeColor));
   noStroke();
   for (let row = 0; row < shapeArray.length; row++) {
     for (let col = 0; col < shapeArray[row].length; col++) {

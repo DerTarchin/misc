@@ -16,9 +16,7 @@ const reset = () => {
 }
 
 function setup() {
-  lightBlue = color(38, 217, 202);
-  mediumBlue = color(0, 163, 208);
-  darkBlue = color(16, 114, 189);
+  applyPalette();
 
   Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 

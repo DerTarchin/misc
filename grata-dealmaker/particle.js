@@ -26,7 +26,7 @@ class Particle {
     push();
     translate(this.x, this.y);
 
-    this.c2 = color(darkBlue, this.alpha);
+    this.c2 = color(red(particleColor), green(particleColor), blue(particleColor), this.alpha);
     stroke(this.c2);
     strokeWeight(3);
     line(this.vx, this.vy, this.vx, this.vy);
