@@ -24,7 +24,8 @@ let isDarkMode = new URLSearchParams(window.location.search).get("dark") === "tr
 const LIGHT_SURFACE = [255, 255, 255];
 const DARK_SURFACE = [8, 9, 11];
 const LIGHT_EMPTY = [226, 238, 242];
-const DARK_EMPTY = [9, 63, 79];
+// Dark secondary-soft is base-brand-950, not brand-800.
+const DARK_EMPTY = [12, 33, 40];
 const LIGHT_ACTIVE = [21, 94, 117];
 const DARK_ACTIVE = [71, 142, 167];
 const LIGHT_SETTLED = [115, 168, 188];
