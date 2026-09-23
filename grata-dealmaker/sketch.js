@@ -47,12 +47,6 @@ function draw() {
   paintCanvasBackground();
   drawGrid();
 
-  particles = particles.filter(p => !p.finished());
-  particles.forEach(p => {
-    p.update();
-    p.show();
-  })
-  
   if (gameOver || !player || pause) return;
 
   // if (kb.presses("arrowUp")) moveUp();

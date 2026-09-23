@@ -23,14 +23,11 @@ class Particle {
   }
 
   show() {
-    push();
-    translate(this.x, this.y);
-
-    this.c2 = color(particleColor, this.alpha);
-    stroke(this.c2);
-    strokeWeight(3);
-    line(this.vx, this.vy, this.vx, this.vy);
-    pop();
+    const [red, green, blue] = isDarkMode ? DARK_SPARKLE : LIGHT_SPARKLE;
+    // color(p5.Color, alpha) ignores the alpha and returns the original color.
+    stroke(red, green, blue, this.alpha);
+    strokeWeight(4);
+    point(this.x, this.y);
   }
 }
 
@@ -40,3 +37,18 @@ const initParticles = (rowOffset=0) => {
     particles.push(p);
   }
 }
+
+const drawParticles = () => {
+  particles = particles.filter((particle) => !particle.finished());
+  particles.forEach((particle) => {
+    particle.update();
+    particle.show();
+  });
+};
+
+// p5play paints every block in its post hook, which runs after draw().
+// This file loads after p5play.js, so this hook runs second and the burst
+// stays visible on top of the rows that just locked in.
+p5.prototype.registerMethod("post", function drawRowClearParticles() {
+  drawParticles();
+});
