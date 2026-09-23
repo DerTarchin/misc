@@ -29,6 +29,10 @@ const LIGHT_ACTIVE = [21, 94, 117];
 const DARK_ACTIVE = [71, 142, 167];
 const LIGHT_SETTLED = [115, 168, 188];
 const DARK_SETTLED = [0, 79, 100];
+// Bright flash when a piece locks, then the cell eases to the settled color.
+// Same idea as the old mediumBlue → darkBlue fade.
+const LIGHT_SPARKLE = [38, 217, 202];
+const DARK_SPARKLE = [115, 168, 188];
 
 let paletteReady = false;
 
@@ -38,12 +42,13 @@ const syncDocumentTheme = () => {
 
 const applyPalette = () => {
   const active = isDarkMode ? DARK_ACTIVE : LIGHT_ACTIVE;
+  const sparkle = isDarkMode ? DARK_SPARKLE : LIGHT_SPARKLE;
   const settled = isDarkMode ? DARK_SETTLED : LIGHT_SETTLED;
-  activeStart = color(...active);
+  activeStart = color(...sparkle);
   activeEnd = color(...active);
-  settledStart = color(...settled);
+  settledStart = color(...sparkle);
   settledEnd = color(...settled);
-  particleColor = color(...settled);
+  particleColor = color(...sparkle);
   paletteReady = true;
 };
 
